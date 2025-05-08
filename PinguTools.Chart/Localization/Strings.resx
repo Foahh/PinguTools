@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>
+            System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>
+            System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="Status_parsing" xml:space="preserve">
+        <value>Parsing...</value>
+    </data>
+    <data name="Diag_invalid_AirSlide_parent" xml:space="preserve">
+        <value>The specified AirSlide parent is invalid.</value>
+    </data>
+    <data name="Diag_invalid_Air_parent" xml:space="preserve">
+        <value>The specified Air parent is invalid.</value>
+    </data>
+    <data name="Diag_invalid_AirHold_parent" xml:space="preserve">
+        <value>The specified AirHold parent is invalid.</value>
+    </data>
+    <data name="Diag_soflanArea_has_no_tail" xml:space="preserve">
+        <value>The SoflanArea is missing a tail.</value>
+    </data>
+    <data name="Diag_hold_has_no_tail" xml:space="preserve">
+        <value>The Hold is missing a tail.</value>
+    </data>
+    <data name="Diag_BPM_change_event_not_found_at_0" xml:space="preserve">
+        <value>No BPM change event was found at tick 0.</value>
+    </data>
+    <data name="Diag_time_Signature_event_not_found_at_0" xml:space="preserve">
+        <value>No Time Signature event was found at bar 0. Defaulting to a 4/4 time signature.</value>
+    </data>
+    <data name="Diag_main_timeline_not_found" xml:space="preserve">
+        <value>The main TIL {0} was not found. A new TIL with an initial speed of 1.0 has been created.</value>
+    </data>
+    <data name="Diag_note_overlapped_in_different_TIL" xml:space="preserve">
+        <value>Note is overlapping with other notes in a different TIL.</value>
+    </data>
+    <data name="Diag_timeline_event_must_have_non_negative_timeline" xml:space="preserve">
+        <value>Scroll speed change events must have a non-negative TIL value.</value>
+    </data>
+    <data name="Diag_pairing_notes_incompatible" xml:space="preserve">
+        <value>Note are incompatible for pairing.</value>
+    </data>
+    <data name="Error_air_parent_null" xml:space="preserve">
+        <value>Parent of Air cannot be null.</value>
+    </data>
+    <data name="Error_air_slide_parent_null" xml:space="preserve">
+        <value>Parent of AirSlide cannot be null.</value>
+    </data>
+    <data name="Diag_set_length_smaller_than_unit" xml:space="preserve">
+        <value>Attempted to set length to {0}, but it was clamped to smallest value {1}.</value>
+    </data>
+</root>

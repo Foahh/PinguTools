@@ -1,0 +1,70 @@
+﻿<Window x:Class="PinguTools.Controls.ExceptionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:localization="clr-namespace:PinguTools.Localization"
+        mc:Ignorable="d"
+        Title="{x:Static localization:Strings.Title_Error}"
+        MinWidth="400"
+
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResizeWithGrip"
+        Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="8,0,0,0" />
+            <Setter Property="Padding" Value="12,4" />
+            <Setter Property="MinWidth" Value="80" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,12">
+            <TextBlock Text="{x:Static localization:Strings.Error_Unhandled}"
+                       FontSize="18"
+                       FontWeight="SemiBold"
+                       Foreground="#D32F2F" />
+        </StackPanel>
+
+        <Border Grid.Row="1"
+                BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"
+                BorderThickness="1"
+                Margin="0,0,0,16">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto"
+                          Padding="4">
+                <TextBox Text="{Binding StackTrace}"
+                         IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         FontFamily="Consolas"
+                         BorderThickness="0"
+                         Background="Transparent" />
+            </ScrollViewer>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button Content="{x:Static localization:Strings.Button_Copy_Exception}"
+                    MinWidth="60"
+                    Click="CopyButton_Click" />
+            <Button Content="{x:Static localization:Strings.Button_Close}"
+                    IsDefault="True"
+                    MinWidth="60"
+                    Click="CloseButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

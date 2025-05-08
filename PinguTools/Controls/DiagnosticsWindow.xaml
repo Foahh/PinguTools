@@ -1,0 +1,119 @@
+﻿<Window
+    SizeToContent="WidthAndHeight"
+    Style="{DynamicResource DialogWindowStyle}"
+    Title="{Binding Title}"
+    WindowStartupLocation="CenterOwner"
+    d:DataContext="{d:DesignInstance controls:DiagnosticsWindowViewModel}"
+    mc:Ignorable="d"
+    x:Class="PinguTools.Controls.DiagnosticsWindow"
+    MaxHeight="600"
+    MaxWidth="800"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:PinguTools.Common;assembly=PinguTools.Common"
+    xmlns:localization="clr-namespace:PinguTools.Localization"
+    xmlns:controls="clr-namespace:PinguTools.Controls"
+    xmlns:behaviors="clr-namespace:PinguTools.Behaviors">
+
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DataGrid ItemsSource="{Binding Diagnostics}"
+                  AutoGenerateColumns="False"
+                  SelectionMode="Single"
+                  Margin="8"
+                  AlternationCount="1000"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  RowDetailsVisibilityMode="VisibleWhenSelected">
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="#" Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center"
+                                       Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=AlternationIndex}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="40" Header="{x:Static localization:Strings.Label_Severity}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="12" Height="12">
+                                <Image.Style>
+                                    <Style TargetType="Image">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Severity}"
+                                                         Value="{x:Static common:DiagnosticSeverity.Error}">
+                                                <Setter Property="Source" Value="{StaticResource ErrorIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Severity}"
+                                                         Value="{x:Static common:DiagnosticSeverity.Warning}">
+                                                <Setter Property="Source" Value="{StaticResource WarningIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Severity}"
+                                                         Value="{x:Static common:DiagnosticSeverity.Information}">
+                                                <Setter Property="Source" Value="{StaticResource InfoIcon}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="{x:Static localization:Strings.Label_Message}"
+                                    Binding="{Binding Message}"
+                                    Width="*" />
+            </DataGrid.Columns>
+
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <controls:ObjectTreeView SelectedObject="{Binding Target}" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+
+
+        <Expander Grid.Row="2" Header="{x:Static localization:Strings.Label_StackTrace}" Margin="8,0,8,8">
+            <i:Interaction.Behaviors>
+                <behaviors:HideIfNullValueBehavior Value="{Binding StackTrace}" />
+            </i:Interaction.Behaviors>
+            <TextBox
+                Margin="0,8,0,0"
+                Text="{Binding StackTrace}"
+                IsReadOnly="True"
+                TextWrapping="Wrap"
+                HorizontalScrollBarVisibility="Auto"
+                VerticalScrollBarVisibility="Auto"
+                Height="150"
+                FontFamily="Consolas, Courier New"
+                Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+        </Expander>
+
+        <StackPanel
+            Grid.Row="3"
+            HorizontalAlignment="Right"
+            Margin="8">
+            <Button Content="OK" IsDefault="True" MinWidth="60">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:CallMethodAction MethodName="Close"
+                                            TargetObject="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

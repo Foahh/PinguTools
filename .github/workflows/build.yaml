@@ -1,0 +1,47 @@
+name: "build release"
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10"
+
+      - name: List Files in Directory
+        run: Get-ChildItem
+
+      - name: Create Archive Directory
+        run: New-Item -ItemType Directory -Path Build\archive
+
+      - name: Restore .NET Dependencies
+        run: dotnet restore
+
+      - name: Wait for 5 Seconds
+        run: Start-Sleep -Seconds 5
+
+      - name: Publish .NET Application
+        run: dotnet publish -r win-x64 --artifacts-path Build/
+
+      - name: Move Executable
+        run: |
+          $tagName = $env:GITHUB_REF -replace 'refs/(heads|tags|remotes)/', ''
+          New-Item -ItemType Directory -Path Build\artifacts
+          Copy-Item "Build\publish\PinguTools\release_win-x64\PinguTools.exe" "Build/artifacts/PinguTools ${tagName}.exe"
+
+      - name: Action Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            Build/artifacts/*
+            LICENSE

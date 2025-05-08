@@ -1,0 +1,14 @@
+<Project>
+    <PropertyGroup>
+        <Copyright>Copyright (C) 2025 Foahh</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Version>1.1.0</Version>
+        <FileVersion>$(Version)</FileVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <Platforms>AnyCPU</Platforms>
+        <Nullable>enable</Nullable>
+        <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+</Project>

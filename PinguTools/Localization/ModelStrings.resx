@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root" xmlns="">
+        <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>
+            System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>
+            System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <!-- Song -->
+    <data name="Category_Song" xml:space="preserve">
+        <value>Song</value>
+    </data>
+    <data name="Display_SongId" xml:space="preserve">
+        <value>Song ID</value>
+    </data>
+    <data name="Description_SongId" xml:space="preserve">
+        <value>The Song ID is extracted from Margrete's Song ID.</value>
+    </data>
+    <data name="Display_Title" xml:space="preserve">
+  <value>Title</value>
+</data>
+    <data name="Display_SortName" xml:space="preserve">
+  <value>Sort Name</value>
+</data>
+    <data name="Description_SortName" xml:space="preserve">
+        <value>Determines how songs are sorted in the game.</value>
+    </data>
+    <data name="Display_Artist" xml:space="preserve">
+  <value>Artist</value>
+</data>
+    <!-- BGM -->
+    <data name="Category_BGM" xml:space="preserve">
+  <value>BGM</value>
+</data>
+    <data name="Display_BgmPreviewStart" xml:space="preserve">
+  <value>Preview Start Time (s)</value>
+</data>
+    <data name="Display_BgmPreviewStop" xml:space="preserve">
+  <value>Preview Stop Time (s)</value>
+</data>
+    <data name="Display_BGMFile" xml:space="preserve">
+  <value>BGM File</value>
+</data>
+    <data name="Description_BGMFile" xml:space="preserve">
+        <value>For the best latency difference between converted audio and playback in Margrete/UMIGURI, please use .wav files.</value>
+    </data>
+    <!-- Sync -->
+    <data name="Category_Sync" xml:space="preserve">
+  <value>Sync</value>
+</data>
+    <data name="Display_RealOffset" xml:space="preserve">
+  <value>Real Offset (s)</value>
+</data>
+    <data name="Description_RealOffset" xml:space="preserve">
+  <value>This value represents the calculated offset (in seconds) applied to the song. Positive values indicate a delay, while negative values indicate an advance.</value>
+</data>
+    <data name="Display_ManualOffset" xml:space="preserve">
+  <value>Manual Offset (s)</value>
+</data>
+    <data name="Description_ManualOffset" xml:space="preserve">
+  <value>This value represents the offset (in seconds) applied to the song manually set by user. Positive values indicate a delay, while negative values indicate an advance.</value>
+</data>
+    <data name="Display_InsertBlankMeasure" xml:space="preserve">
+  <value>Insert Blank Measure</value>
+</data>
+    <data name="Description_InsertBlankMeasure" xml:space="preserve">
+  <value>Configure this through Margrete. If enabled, a silent measure with click cues is inserted at the beginning, ensuring that the first musical measure follows the blank.</value>
+</data>
+    <data name="Display_BgmInitialBpm" xml:space="preserve">
+  <value>Initial BPM</value>
+</data>
+    <data name="Description_BgmInitialBpm" xml:space="preserve">
+  <value>Specifies the starting BPM (Beats Per Minute) of the chart. It is used to calculate real offset.</value>
+</data>
+    <data name="Display_BgmInitialTimeSignature" xml:space="preserve">
+  <value>Initial Time Signature</value>
+</data>
+    <data name="Description_BgmInitialTimeSignature" xml:space="preserve">
+  <value>Specifies the time signature (beats per bar and note value) at the start of the chart. It is used to calculate real offset.</value>
+</data>
+    <!-- Beat -->
+    <data name="Display_Numerator" xml:space="preserve">
+  <value>Numerator</value>
+</data>
+    <data name="Display_Denominator" xml:space="preserve">
+  <value>Denominator</value>
+</data>
+    <!-- Chart -->
+    <data name="Category_Chart" xml:space="preserve">
+  <value>Chart</value>
+</data>
+    <data name="Display_Designer" xml:space="preserve">
+  <value>Designer</value>
+</data>
+    <data name="Display_Difficulty" xml:space="preserve">
+  <value>Difficulty</value>
+</data>
+    <data name="Display_Level" xml:space="preserve">
+  <value>Level</value>
+</data>
+    <data name="Display_ReleaseDate" xml:space="preserve">
+  <value>Release Date</value>
+</data>
+    <data name="Display_DisplayBPM" xml:space="preserve">
+  <value>Display BPM</value>
+</data>
+    <!-- World's End -->
+    <data name="Category_WorldsEnd" xml:space="preserve">
+  <value>World's End</value>
+</data>
+    <data name="Display_WorldsEndEventID" xml:space="preserve">
+  <value>World's End Event ID</value>
+</data>
+    <data name="Description_WorldsEndEventID" xml:space="preserve">
+  <value>For the "World's End" event that unlocks the chart in the game.</value>
+</data>
+    <data name="Display_WorldsEndTag" xml:space="preserve">
+  <value>World's End Tag</value>
+</data>
+    <data name="Display_WorldsEndDifficulty" xml:space="preserve">
+  <value>World's End Difficulty</value>
+</data>
+    <!-- Display -->
+    <data name="Category_Display" xml:space="preserve">
+  <value>Display</value>
+</data>
+    <data name="Display_JacketFile" xml:space="preserve">
+  <value>Jacket File</value>
+</data>
+    <data name="Display_BackgroundFile" xml:space="preserve">
+  <value>Background File</value>
+</data>
+    <data name="Display_BackgroundStage" xml:space="preserve">
+  <value>Background Stage</value>
+</data>
+    <!-- Misc -->
+    <data name="Category_Misc" xml:space="preserve">
+  <value>Misc</value>
+</data>
+    <data name="Display_IsCustomBackground" xml:space="preserve">
+        <value>Generate Custom Background</value>
+    </data>
+    <data name="Display_StageId" xml:space="preserve">
+        <value>Stage ID</value>
+    </data>
+    <data name="Display_NotesFieldLine" xml:space="preserve">
+        <value>Notes Field Line Color</value>
+    </data>
+</root>

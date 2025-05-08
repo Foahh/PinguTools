@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguTools", "PinguTools\PinguTools.csproj", "{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguTools.Audio", "PinguTools.Audio\PinguTools.Audio.csproj", "{65B7C203-CA08-4B9A-BB3C-DA718C8506AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguTools.Image", "PinguTools.Image\PinguTools.Image.csproj", "{05719632-0790-4561-BDDB-CBE18FC260FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguTools.Common", "PinguTools.Common\PinguTools.Common.csproj", "{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguTools.Chart", "PinguTools.Chart\PinguTools.Chart.csproj", "{60C780B6-9674-41BE-9DC6-D9FB5B2F8913}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		build.bat = build.bat
+		.github\workflows\build.yaml = .github\workflows\build.yaml
+		README.md = README.md
+		Version.props = Version.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B7C203-CA08-4B9A-BB3C-DA718C8506AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B7C203-CA08-4B9A-BB3C-DA718C8506AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B7C203-CA08-4B9A-BB3C-DA718C8506AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B7C203-CA08-4B9A-BB3C-DA718C8506AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05719632-0790-4561-BDDB-CBE18FC260FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05719632-0790-4561-BDDB-CBE18FC260FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05719632-0790-4561-BDDB-CBE18FC260FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05719632-0790-4561-BDDB-CBE18FC260FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60C780B6-9674-41BE-9DC6-D9FB5B2F8913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C780B6-9674-41BE-9DC6-D9FB5B2F8913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C780B6-9674-41BE-9DC6-D9FB5B2F8913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C780B6-9674-41BE-9DC6-D9FB5B2F8913}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_PrefixTranslations = False
+		SolutionGuid = {41AF8E9D-0255-44BD-B46A-97ECD712AA73}
+	EndGlobalSection
+EndGlobal

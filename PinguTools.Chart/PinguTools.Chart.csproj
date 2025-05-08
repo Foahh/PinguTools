@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <AssemblyName>PinguTools.Chart</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\PinguTools.Common\PinguTools.Common.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="ChartConverter.Main.cs">
+            <DependentUpon>ChartConverter.cs</DependentUpon>
+        </Compile>
+        <Compile Update="Meta.cs">
+            <DependentUpon>cs</DependentUpon>
+        </Compile>
+        <Compile Update="MgxcParser.Meta.cs">
+            <DependentUpon>MgxcParser.cs</DependentUpon>
+        </Compile>
+        <Compile Update="MgxcParser.Main.cs">
+            <DependentUpon>MgxcParser.cs</DependentUpon>
+        </Compile>
+        <Compile Update="Localization\Strings.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Strings.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Localization\Strings.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <Import Project="..\Version.props"/>
+</Project>

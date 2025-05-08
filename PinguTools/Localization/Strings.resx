@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root" xmlns="">
+        <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>
+            System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>
+            System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="Label_Input" xml:space="preserve">
+    <value>Input: </value>
+  </data>
+    <data name="Label_Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+    <data name="Button_Convert" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+    <data name="Label_Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+    <data name="Label_Jacket_ID" xml:space="preserve">
+    <value>Jacket ID</value>
+  </data>
+    <data name="Label_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+    <data name="Button_open_temp_directory" xml:space="preserve">
+    <value>Open Temp Directory</value>
+  </data>
+    <data name="Button_extract_dds_from_afb" xml:space="preserve">
+    <value>Extract *.dds from *.afb</value>
+  </data>
+    <data name="Button_Recollect_A000" xml:space="preserve">
+    <value>Recollect A000</value>
+  </data>
+    <data name="Label_Not_Available" xml:space="preserve">
+    <value>Not available</value>
+  </data>
+    <data name="Label_Stage_ID" xml:space="preserve">
+    <value>Stage ID</value>
+  </data>
+    <data name="Label_Effects" xml:space="preserve">
+    <value>Effects (256×256)</value>
+  </data>
+    <data name="Label_NotesField_Line_Color" xml:space="preserve">
+    <value>Notes Field Line Color</value>
+  </data>
+    <data name="Button_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+    <data name="Button_Generate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+    <data name="Label_Chart" xml:space="preserve">
+    <value>Chart: </value>
+  </data>
+    <data name="Title_Diagnostics" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+    <data name="Status_idle" xml:space="preserve">
+    <value>Idle</value>
+  </data>
+    <data name="Title_select_the_input_file" xml:space="preserve">
+    <value>Select the input file</value>
+  </data>
+    <data name="Title_select_the_output_folder" xml:space="preserve">
+    <value>Select the output folder</value>
+  </data>
+    <data name="Title_select_the_A000_folder" xml:space="preserve">
+    <value>Select the A000 folder</value>
+  </data>
+    <data name="Error_meta_is_not_set" xml:space="preserve">
+    <value>Meta is not set.</value>
+  </data>
+    <data name="Title_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+    <data name="Status_starting" xml:space="preserve">
+    <value>Starting...</value>
+  </data>
+    <data name="Status_done" xml:space="preserve">
+    <value>Done!</value>
+  </data>
+    <data name="Status_error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+    <data name="Status_collecting" xml:space="preserve">
+    <value>Collecting...</value>
+  </data>
+    <data name="Status_saving" xml:space="preserve">
+    <value>Saving...</value>
+  </data>
+    <data name="Tab_Workflow" xml:space="preserve">
+    <value>Workflow</value>
+  </data>
+    <data name="Tab_Chart" xml:space="preserve">
+    <value>Chart</value>
+  </data>
+    <data name="Tab_Jacket" xml:space="preserve">
+    <value>Jacket</value>
+  </data>
+    <data name="Tab_Music" xml:space="preserve">
+    <value>Music</value>
+  </data>
+    <data name="Tab_Stage" xml:space="preserve">
+    <value>Stage</value>
+  </data>
+    <data name="Tab_Misc" xml:space="preserve">
+    <value>Misc</value>
+  </data>
+    <data name="Label_StackTrace" xml:space="preserve">
+    <value>Stack Trace</value>
+  </data>
+    <data name="UpdateCheck_Failed" xml:space="preserve">
+    <value>Update check failed</value>
+</data>
+    <data name="UpdateCheck_Already_Latest" xml:space="preserve">
+    <value>Already the latest version</value>
+</data>
+    <data name="UpdateCheck_New_Version_Available" xml:space="preserve">
+    <value>New version {0} available (Click to View)</value>
+</data>
+    <data name="UpdateCheck_Checking" xml:space="preserve">
+    <value>Checking for updates...</value>
+</data>
+    <data name="UpdateCheck_Tooltip" xml:space="preserve">
+    <value>Click to check for updates</value>
+</data>
+    <data name="Error_Unhandled" xml:space="preserve">
+    <value>Unhandled Error!</value>
+  </data>
+    <data name="Button_Copy_Exception" xml:space="preserve">
+    <value>Copy Exception</value>
+  </data>
+    <data name="Button_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+    <data name="Label_Culprit" xml:space="preserve">
+    <value>Culprit</value>
+  </data>
+    <data name="Button_Show_Details" xml:space="preserve">
+    <value>Show Details</value>
+  </data>
+    <data name="Label_Severity" xml:space="preserve">
+    <value>Severity</value>
+  </data>
+</root>

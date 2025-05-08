@@ -1,0 +1,56 @@
+﻿<UserControl
+    d:DataContext="{d:DesignInstance Type=viewModels:MiscTabViewModel}"
+    mc:Ignorable="d"
+    MaxWidth="500"
+    x:Class="PinguTools.Pages.MiscTab"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="clr-namespace:PinguTools.ViewModels"
+    xmlns:pinguTools="clr-namespace:PinguTools"
+    xmlns:localization="clr-namespace:PinguTools.Localization"
+    xmlns:converters="clr-namespace:PinguTools.Converters">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type StackPanel}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="0,4,0,0" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <converters:VersionConverter x:Key="VersionConverter" />
+    </UserControl.Resources>
+
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,8,8">
+            <TextBlock Text="{Binding Source={x:Static pinguTools:App.BuildDate}, StringFormat=Foahh @ {0:yyyy/MM/dd}}"
+                       FontSize="14"
+                       Foreground="#555"
+                       HorizontalAlignment="Center"
+                       Margin="0,8,0,0" />
+
+            <TextBlock
+                Text="{Binding Source={x:Static pinguTools:App.Version}, Converter={StaticResource VersionConverter}}"
+                FontSize="12"
+                FontWeight="SemiBold"
+                Foreground="#777"
+                HorizontalAlignment="Center"
+                Margin="0,8,0,0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Button Command="{Binding OpenTempDirectoryCommand}"
+                    Content="{x:Static localization:Strings.Button_open_temp_directory}" />
+            <Button Command="{Binding ExtractAfbFileCommand}"
+                    Content="{x:Static localization:Strings.Button_extract_dds_from_afb}" />
+            <Button Command="{Binding CollectAssetCommand}"
+                    Content="{x:Static localization:Strings.Button_Recollect_A000}" />
+        </StackPanel>
+    </Grid>
+</UserControl>
