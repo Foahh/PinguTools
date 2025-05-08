@@ -34,10 +34,10 @@ public enum ExEffect
     [Description("Up")] UP,
     [Description("Down")] DW,
     [Description("Center")] CE,
-    [Description("Left")] LS,
-    [Description("Right")] RS,
-    [Description("Rotate Left")] LC,
-    [Description("Rotate Right")] RC,
+    [Description("Left")] LC,
+    [Description("Right")] RC,
+    [Description("Rotate Left")] LS,
+    [Description("Rotate Right")] RS,
     [Description("InOut")] BS
     // [Description("OutIn")] Unknown
 }

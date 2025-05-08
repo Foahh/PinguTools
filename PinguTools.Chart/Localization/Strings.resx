@@ -71,4 +71,7 @@
     <data name="Diag_set_length_smaller_than_unit" xml:space="preserve">
         <value>Attempted to set length to {0}, but it was clamped to smallest value {1}.</value>
     </data>
+    <data name="Diag_concurrent_ex_effects" xml:space="preserve">
+        <value>Different EX effects coexist at the tick {0}: {1}</value>
+    </data>
 </root>

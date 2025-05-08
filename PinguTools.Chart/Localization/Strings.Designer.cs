@@ -69,6 +69,15 @@ namespace PinguTools.Chart.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Different EX effects coexist at the tick {0}: {1}.
+        /// </summary>
+        public static string Diag_concurrent_ex_effects {
+            get {
+                return ResourceManager.GetString("Diag_concurrent_ex_effects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Hold is missing a tail..
         /// </summary>
         public static string Diag_hold_has_no_tail {

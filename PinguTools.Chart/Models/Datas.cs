@@ -5,36 +5,46 @@
 
 namespace PinguTools.Chart.Models;
 
-public readonly record struct Time(int Value) : IComparable<Time>
+public readonly record struct Time(int Original) : IComparable<Time>
 {
+    public bool Equals(Time other)
+    {
+        return Original == other.Original;
+    }
+
+    public override int GetHashCode()
+    {
+        return Original;
+    }
+
     public const int MarResolution = 1920;
     public const int CtsResolution = 384;
     public const int SingleTick = MarResolution / CtsResolution;
     private const decimal FACTOR = (decimal)CtsResolution / MarResolution;
 
-    public int Rounded { get; } = (int)Math.Round((decimal)Value / SingleTick) * SingleTick;
+    public int Rounded { get; } = (int)Math.Round((decimal)Original / SingleTick) * SingleTick;
     public int Measure => Rounded / MarResolution;
     public int Offset => (int)(Rounded % MarResolution * FACTOR);
     public int Scaled => (int)(Rounded * FACTOR);
 
     public int CompareTo(Time other)
     {
-        return Value.CompareTo(other.Value);
+        return Original.CompareTo(other.Original);
     }
 
     public static Time operator -(Time a, Time b)
     {
-        return a.Value - b.Value;
+        return a.Rounded - b.Rounded;
     }
 
     public static bool operator <(Time a, Time b)
     {
-        return a.Value < b.Value;
+        return a.Rounded < b.Rounded;
     }
 
     public static bool operator >(Time a, Time b)
     {
-        return a.Value > b.Value;
+        return a.Rounded > b.Rounded;
     }
 
     public static implicit operator Time(int value)
@@ -44,7 +54,7 @@ public readonly record struct Time(int Value) : IComparable<Time>
 
     public static implicit operator int(Time value)
     {
-        return value.Value;
+        return value.Rounded;
     }
 }
 

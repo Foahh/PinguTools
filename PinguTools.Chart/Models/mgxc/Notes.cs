@@ -86,7 +86,7 @@ public class Air : NegativeNote
             // do nothing
         }
     }
-    public override int Tick
+    public override Time Tick
     {
         get => PairNote?.Tick ?? 0;
         set
@@ -142,7 +142,7 @@ public class AirSlide : NegativeNote
         }
     }
 
-    public override int Tick
+    public override Time Tick
     {
         get => PairNote?.Tick ?? 0;
         set

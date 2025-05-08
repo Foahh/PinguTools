@@ -150,7 +150,7 @@ namespace PinguTools.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unhandled Error!.
+        ///   Looks up a localized string similar to Error!.
         /// </summary>
         public static string Error_Unhandled {
             get {
@@ -245,15 +245,6 @@ namespace PinguTools.Localization {
         public static string Label_Parameters {
             get {
                 return ResourceManager.GetString("Label_Parameters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Severity.
-        /// </summary>
-        public static string Label_Severity {
-            get {
-                return ResourceManager.GetString("Label_Severity", resourceCulture);
             }
         }
         

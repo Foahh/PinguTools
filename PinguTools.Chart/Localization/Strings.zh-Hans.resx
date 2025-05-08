@@ -171,4 +171,7 @@
     <data name="Error_air_slide_parent_null" xml:space="preserve">
         <value>AirSlide的父级不能为 null。</value>
     </data>
+    <data name="Diag_concurrent_ex_effects" xml:space="preserve">
+        <value>Tick {0} 同时存在多个不同的 EX 效果：{1}</value>
+    </data>
 </root>

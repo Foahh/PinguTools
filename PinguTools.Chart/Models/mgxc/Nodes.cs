@@ -21,7 +21,7 @@ public abstract class TimeNode<T> where T : TimeNode<T>
     [JsonIgnore] public T? FirstChild => ChildNodes.Count > 0 ? ChildNodes[0] : null;
     [JsonIgnore] public T? LastChild => ChildNodes.Count > 0 ? ChildNodes[^1] : null;
 
-    public virtual int Tick { get; set; }
+    public virtual Time Tick { get; set; }
 
     public override string ToString()
     {
@@ -114,7 +114,7 @@ public abstract class TimeNode<T> where T : TimeNode<T>
         Tick = Math.Max(Tick + offset, 0);
         foreach (var child in ChildNodes) child.Offset(offset);
     }
-
+    
     protected void SortChild(Comparison<T> comparison)
     {
         ChildNodes.Sort(comparison);

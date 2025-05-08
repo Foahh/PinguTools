@@ -34,7 +34,7 @@ public abstract class LongNote : Note
 {
     public Time Length { get; private set; }
 
-    public void SetLengthSafe(int value, IDiagnostic diag)
+    public void SetLengthSafe(Time value, IDiagnostic diag)
     {
         if (value < Time.SingleTick) diag.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_set_length_smaller_than_unit, value, Time.SingleTick), this);
         Length = Math.Max(Time.SingleTick, value);

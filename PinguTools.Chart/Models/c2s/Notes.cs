@@ -63,7 +63,7 @@ public class Air : Note, IPairable
     public Color Color { get; set; } = Color.DEF;
 
     public override string Id => $"A{Direction}";
-    public override string Text => $"{base.Text}\t{ParentId}\t{Color}";
+    [JsonIgnore] public override string Text => $"{base.Text}\t{ParentId}\t{Color}";
     public Note? Parent { get; set; }
     [JsonIgnore] public string ParentId => Parent?.Id ?? throw new NoNullAllowedException(Strings.Error_air_parent_null);
 }
@@ -74,7 +74,7 @@ public class AirSlide : LongHeightNote, IPairable
     public Color Color { get; set; } = Color.DEF;
 
     public override string Id => $"AS{Joint}";
-    public override string Text => $"{base.Text}\t{ParentId}\t{Height.Scaled:F1}\t{Length.Scaled}\t{EndLane}\t{EndWidth}\t{EndHeight.Scaled:F1}\t{Color}";
+    [JsonIgnore] public override string Text => $"{base.Text}\t{ParentId}\t{Height.Scaled:F1}\t{Length.Scaled}\t{EndLane}\t{EndWidth}\t{EndHeight.Scaled:F1}\t{Color}";
     public Note? Parent { get; set; }
     [JsonIgnore] public string ParentId => Parent?.Id ?? throw new NoNullAllowedException(Strings.Error_air_slide_parent_null);
 }

@@ -143,7 +143,7 @@
     <value>Click to check for updates</value>
 </data>
     <data name="Error_Unhandled" xml:space="preserve">
-    <value>Unhandled Error!</value>
+    <value>Error!</value>
   </data>
     <data name="Button_Copy_Exception" xml:space="preserve">
     <value>Copy Exception</value>
@@ -156,8 +156,5 @@
   </data>
     <data name="Button_Show_Details" xml:space="preserve">
     <value>Show Details</value>
-  </data>
-    <data name="Label_Severity" xml:space="preserve">
-    <value>Severity</value>
   </data>
 </root>

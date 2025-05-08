@@ -85,10 +85,10 @@ public partial class MgxcParser
                 "U" => ExEffect.UP,
                 "D" => ExEffect.DW,
                 "C" => ExEffect.CE,
-                "L" => ExEffect.LC,
-                "R" => ExEffect.RC,
-                "RL" => ExEffect.LS,
-                "RR" => ExEffect.RS,
+                "L" => ExEffect.LS,
+                "R" => ExEffect.RS,
+                "RL" => ExEffect.LC,
+                "RR" => ExEffect.RC,
                 "IO" => ExEffect.BS,
                 "OI" => ExEffect.CE, // OutIn is not supported in C2S
                 _ => ExEffect.UP

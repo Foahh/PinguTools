@@ -27,7 +27,7 @@
                     <xctk:DecimalUpDown
                         FormatString="F1"
                         Increment="0.1"
-                        Value="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Value="{Binding Original, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DataTemplate>
             </xctk:EditorTemplateDefinition.EditingTemplate>
         </xctk:EditorTemplateDefinition>
@@ -43,7 +43,7 @@
                     <xctk:DecimalUpDown
                         FormatString="F6"
                         Increment="0.000001"
-                        Value="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Value="{Binding Original, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DataTemplate>
             </xctk:EditorTemplateDefinition.EditingTemplate>
         </xctk:EditorTemplateDefinition>
@@ -56,7 +56,7 @@
                 <DataTemplate>
                     <ComboBox
                         ItemsSource="{Binding Path=AssetService.WeTagNames,RelativeSource ={RelativeSource AncestorType={x:Type local:MetaPropertyGrid}}}"
-                        SelectedItem="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        SelectedItem="{Binding Original, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DataTemplate>
             </xctk:EditorTemplateDefinition.EditingTemplate>
         </xctk:EditorTemplateDefinition>
@@ -69,7 +69,7 @@
                 <DataTemplate>
                     <ComboBox
                         ItemsSource="{Binding Path=AssetService.StageNames, RelativeSource={RelativeSource AncestorType={x:Type local:MetaPropertyGrid}}}"
-                        SelectedItem="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        SelectedItem="{Binding Original, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DataTemplate>
             </xctk:EditorTemplateDefinition.EditingTemplate>
         </xctk:EditorTemplateDefinition>
@@ -82,7 +82,7 @@
                 <DataTemplate>
                     <ComboBox
                         ItemsSource="{Binding Path=AssetService.FieldLines, RelativeSource={RelativeSource AncestorType={x:Type local:MetaPropertyGrid}}}"
-                        SelectedItem="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        SelectedItem="{Binding Original, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DataTemplate>
             </xctk:EditorTemplateDefinition.EditingTemplate>
         </xctk:EditorTemplateDefinition>
@@ -99,7 +99,7 @@
                         ShowButtonSpinner="False"
                         TextAlignment="Left"
                         TimePickerVisibility="Collapsed"
-                        Value="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Value="{Binding Original, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DataTemplate>
             </xctk:EditorTemplateDefinition.EditingTemplate>
         </xctk:EditorTemplateDefinition>

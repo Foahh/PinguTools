@@ -134,26 +134,41 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
             }
         }
 
-        // the event is not sorted by tick in my chart cases
         mgxc.Events.Sort();
     }
 
     protected void PostProcessNote(mgxc.Chart mgxc)
     {
+        var noteGroup = mgxc.Notes.Children.OfType<mgxc.ExTapableNote>().GroupBy(note => (note.Tick, note.Lane, note.Width)).ToDictionary(g => g.Key, g => g.ToList());
+        var exEffects = new Dictionary<Time, HashSet<ExEffect>>();
         var remove = new List<mgxc.ExTap>();
+
         foreach (var exTap in mgxc.Notes.Children.OfType<mgxc.ExTap>())
         {
-            foreach (var note in mgxc.Notes.Children.OfType<mgxc.ExTapableNote>())
+            if (!exEffects.TryGetValue(exTap.Tick, out var effectSet))
             {
-                if (note.Tick != exTap.Tick || note.Lane != exTap.Lane || note.Width != exTap.Width) continue;
-                note.Effect = exTap.Effect;
-                if (exTap.Children.Count <= 0 && exTap.PairNote == null) remove.Add(exTap);
+                effectSet = [];
+                exEffects[exTap.Tick] = effectSet;
             }
+            effectSet.Add(exTap.Effect);
+
+            var key = (exTap.Tick, exTap.Lane, exTap.Width);
+            if (!noteGroup.TryGetValue(key, out var matchingNotes)) continue;
+            foreach (var note in matchingNotes) note.Effect = exTap.Effect;
+            if (exTap.Children.Count <= 0 && exTap.PairNote == null) remove.Add(exTap);
         }
         foreach (var exTap in remove) mgxc.Notes.RemoveChild(exTap);
 
+        foreach (var (tick, effects) in exEffects)
+        {
+            if (effects.Count <= 1) continue;
+            var str = string.Join(", ", effects.Select(e => e.ToString()));
+            diagnostic.Report(DiagnosticSeverity.Information, string.Format(Strings.Diag_concurrent_ex_effects, tick.Original, str), tick);
+        }
+        
         mgxc.Notes.Sort();
     }
+
 
     protected static HashSet<mgxc.Note> FindViolations(mgxc.Note notes)
     {
