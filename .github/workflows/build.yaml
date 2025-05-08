@@ -14,30 +14,30 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "10"
 
-      - name: List Files in Directory
-        run: Get-ChildItem
-
-      - name: Create Archive Directory
-        run: New-Item -ItemType Directory -Path Build\archive
-
       - name: Restore .NET Dependencies
         run: dotnet restore
 
-      - name: Wait for 5 Seconds
-        run: Start-Sleep -Seconds 5
+      - name: Publish .NET Application (Self-Contained)
+        run: dotnet publish -c Release -r win-x64 --self-contained true --output Build/SelfContained
 
-      - name: Publish .NET Application
-        run: dotnet publish -r win-x64 --artifacts-path Build/
+      - name: Publish .NET Application (Framework-Dependent)
+        run: dotnet publish -c Release -r win-x64 --self-contained false --output Build/FrameworkDependent
 
-      - name: Move Executable
+      - name: Prepare Self-Contained Artifact
         run: |
           $tagName = $env:GITHUB_REF -replace 'refs/(heads|tags|remotes)/', ''
-          New-Item -ItemType Directory -Path Build\artifacts
-          Copy-Item "Build\publish\PinguTools\release_win-x64\PinguTools.exe" "Build/artifacts/PinguTools ${tagName}.exe"
+          New-Item -ItemType Directory -Path Build/artifacts
+          Copy-Item "Build/SelfContained/PinguTools.exe" "Build/artifacts/PinguTools_${tagName}_SelfContained.exe"
+
+      - name: Prepare Framework-Dependent Artifact
+        run: |
+          $tagName = $env:GITHUB_REF -replace 'refs/(heads|tags|remotes)/', ''
+          Copy-Item "Build/FrameworkDependent/PinguTools.exe" "Build/artifacts/PinguTools_${tagName}.exe"
 
       - name: Action Release
         uses: softprops/action-gh-release@v2
