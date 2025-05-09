@@ -5,6 +5,8 @@
 
 namespace PinguTools.Chart.Models;
 
+public readonly record struct Position(int Measure, int Offset);
+
 public readonly record struct Time(int Original) : IComparable<Time>
 {
     public bool Equals(Time other)
@@ -22,10 +24,15 @@ public readonly record struct Time(int Original) : IComparable<Time>
     public const int SingleTick = MarResolution / CtsResolution;
     private const decimal FACTOR = (decimal)CtsResolution / MarResolution;
 
-    public int Rounded { get; } = (int)Math.Round((decimal)Original / SingleTick) * SingleTick;
-    public int Scaled => (int)(Rounded * FACTOR);
+    public int Round { get; } = (int)Math.Round((decimal)Original / SingleTick) * SingleTick;
+    public int Result => (int)(Round * FACTOR);
 
-    public (int Measure, int Offset) Position => (Rounded / MarResolution, (int)(Rounded % MarResolution * FACTOR));
+    public Position Position => new(Round / MarResolution, (int)(Round % MarResolution * FACTOR));
+
+    public override string ToString()
+    {
+        return Original == Round ? $"[{Original}→{Result}]" : $"[{Original}→{Round}→{Result}]";
+    }
 
     public int CompareTo(Time other)
     {
@@ -34,17 +41,17 @@ public readonly record struct Time(int Original) : IComparable<Time>
 
     public static Time operator -(Time a, Time b)
     {
-        return a.Rounded - b.Rounded;
+        return a.Round - b.Round;
     }
 
     public static bool operator <(Time a, Time b)
     {
-        return a.Rounded < b.Rounded;
+        return a.Round < b.Round;
     }
 
     public static bool operator >(Time a, Time b)
     {
-        return a.Rounded > b.Rounded;
+        return a.Round > b.Round;
     }
 
     public static implicit operator Time(int value)
@@ -54,22 +61,22 @@ public readonly record struct Time(int Original) : IComparable<Time>
 
     public static implicit operator int(Time value)
     {
-        return value.Rounded;
+        return value.Round;
     }
 }
 
-public readonly record struct Height(decimal Value) : IComparable<Height>
+public readonly record struct Height(decimal Original) : IComparable<Height>
 {
-    public readonly decimal Scaled = Math.Round(Math.Max(0m, Value * 0.5m + 1m), 1);
+    public readonly decimal Result = Math.Round(Math.Max(0m, Original * 0.5m + 1m), 1);
 
     public int CompareTo(Height other)
     {
-        return Value.CompareTo(other.Value);
+        return Original.CompareTo(other.Original);
     }
 
     public static Height operator -(Height a, Height b)
     {
-        return a.Value - b.Value;
+        return a.Original - b.Original;
     }
 
     public static implicit operator Height(decimal value)
@@ -79,6 +86,6 @@ public readonly record struct Height(decimal Value) : IComparable<Height>
 
     public static implicit operator decimal(Height value)
     {
-        return value.Value;
+        return value.Original;
     }
 }

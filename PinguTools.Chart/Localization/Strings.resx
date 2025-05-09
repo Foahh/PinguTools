@@ -35,9 +35,6 @@
     <data name="Diag_invalid_Air_parent" xml:space="preserve">
         <value>The specified Air parent is invalid.</value>
     </data>
-    <data name="Diag_invalid_AirHold_parent" xml:space="preserve">
-        <value>The specified AirHold parent is invalid.</value>
-    </data>
     <data name="Diag_soflanArea_has_no_tail" xml:space="preserve">
         <value>The SoflanArea is missing a tail.</value>
     </data>
@@ -73,5 +70,8 @@
     </data>
     <data name="Diag_concurrent_ex_effects" xml:space="preserve">
         <value>Different EX effects coexist at the tick {0}: {1}</value>
+    </data>
+    <data name="Diag_AirCrush_min_density_but_end_Control" xml:space="preserve">
+        <value>The converted AirCrush has a minimum density of {0}. However, the original AirCrash End is Control, resulting in the End actually being a Step.</value>
     </data>
 </root>

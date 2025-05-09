@@ -1,5 +1,6 @@
 ﻿using PinguTools.Chart.Localization;
 using PinguTools.Chart.Models;
+using PinguTools.Common;
 using mgxc = PinguTools.Chart.Models.mgxc;
 using c2s = PinguTools.Chart.Models.c2s;
 
@@ -103,13 +104,19 @@ public partial class ChartConverter
     private void FinalizeAirCrashJoint(mgxc.AirCrash parent, mgxc.AirCrashJoint start, mgxc.AirCrashJoint end, int jointCount)
     {
         var length = end.Tick - start.Tick;
-        var density = jointCount switch
+        if (end.Joint == Joint.D) jointCount -= 1;
+
+        Time density = jointCount == 0 ? 0 : length / jointCount;
+        if (end.Joint == Joint.C && jointCount > 0)
         {
-            0 => 0,
-            1 => length + Time.SingleTick,
-            _ => length / (jointCount - 1)
-        };
-        if (end.Joint == Joint.C) length -= Time.SingleTick;
+            if (length <= Time.SingleTick) density += Time.SingleTick;
+            else length -= Time.SingleTick;
+        }
+
+        if (density == Time.SingleTick && end.Joint == Joint.C)
+        {
+            diagnostic.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_AirCrush_min_density_but_end_Control, Time.SingleTick), new[] { start, end });
+        }
 
         CreateNote<c2s.AirCrash>(start, x =>
         {
@@ -204,7 +211,6 @@ public partial class ChartConverter
             x.Direction = airNote.Direction;
             x.Color = airNote.Color;
         });
-        Notes.Add(note);
         nMap[airNote] = note;
     }
 

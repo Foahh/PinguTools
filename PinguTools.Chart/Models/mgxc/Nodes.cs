@@ -114,7 +114,7 @@ public abstract class TimeNode<T> where T : TimeNode<T>
         Tick = Math.Max(Tick + offset, 0);
         foreach (var child in ChildNodes) child.Offset(offset);
     }
-    
+
     protected void SortChild(Comparison<T> comparison)
     {
         ChildNodes.Sort(comparison);
@@ -149,15 +149,29 @@ public class Note : TimeNode<Note>
 
     public override void Sort()
     {
+        // In CHUNITHM, notes appear to have layer priority where later ones render on top, covering those beneath.
+        // However, in UMIGURI, AirCrash always renders on top regardless of order.
+        // To match UMIGURI's behavior, the AirCrash note is moved to the end of the list.
         SortChild((x, y) =>
         {
-            var result = x.Tick.CompareTo(y.Tick);
+            if (x is not AirCrash && y is not AirCrash) return CompareCommon();
+            if (x is not AirCrash xCrash) return -1;
+            if (y is not AirCrash yCrash) return 1;
+
+            var result = CompareCommon();
             if (result != 0) return result;
-            result = x.Lane.CompareTo(y.Lane);
-            if (result != 0) return result;
-            result = x.Width.CompareTo(y.Width);
-            if (result != 0) return result;
-            return x.Timeline.CompareTo(y.Timeline);
+            return xCrash.Color.CompareTo(yCrash.Color);
+
+            int CompareCommon()
+            {
+                var i = x.Tick.CompareTo(y.Tick);
+                if (i != 0) return i;
+                i = x.Lane.CompareTo(y.Lane);
+                if (i != 0) return i;
+                i = x.Width.CompareTo(y.Width);
+                if (i != 0) return i;
+                return x.Timeline.CompareTo(y.Timeline);
+            }
         });
 
         // move negative notes after the paired positive notes

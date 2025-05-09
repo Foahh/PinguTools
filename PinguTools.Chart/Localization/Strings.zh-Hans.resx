@@ -174,4 +174,7 @@
     <data name="Diag_concurrent_ex_effects" xml:space="preserve">
         <value>Tick {0} 同时存在多个不同的 EX 效果：{1}</value>
     </data>
+    <data name="Diag_AirCrush_min_density_but_end_Control" xml:space="preserve">
+        <value>转换后的 AirCrush 密度最低，仅为 {0}；而原始 AirCrash 的终点为 Control，导致最终实际显示为 Step。</value>
+    </data>
 </root>

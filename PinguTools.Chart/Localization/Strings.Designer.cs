@@ -60,6 +60,15 @@ namespace PinguTools.Chart.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The converted AirCrush has a minimum density of {0}. However, the original AirCrash End is Control, resulting in the End actually being a Step..
+        /// </summary>
+        public static string Diag_AirCrush_min_density_but_end_Control {
+            get {
+                return ResourceManager.GetString("Diag_AirCrush_min_density_but_end_Control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No BPM change event was found at tick 0..
         /// </summary>
         public static string Diag_BPM_change_event_not_found_at_0 {
@@ -92,15 +101,6 @@ namespace PinguTools.Chart.Localization {
         public static string Diag_invalid_Air_parent {
             get {
                 return ResourceManager.GetString("Diag_invalid_Air_parent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified AirHold parent is invalid..
-        /// </summary>
-        public static string Diag_invalid_AirHold_parent {
-            get {
-                return ResourceManager.GetString("Diag_invalid_AirHold_parent", resourceCulture);
             }
         }
         
