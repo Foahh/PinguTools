@@ -29,19 +29,19 @@
     <data name="Status_parsing" xml:space="preserve">
         <value>Parsing...</value>
     </data>
-    <data name="Diag_invalid_AirSlide_parent" xml:space="preserve">
+    <data name="Error_invalid_AirSlide_parent" xml:space="preserve">
         <value>The specified AirSlide parent is invalid.</value>
     </data>
-    <data name="Diag_invalid_Air_parent" xml:space="preserve">
+    <data name="Error_invalid_Air_parent" xml:space="preserve">
         <value>The specified Air parent is invalid.</value>
     </data>
-    <data name="Diag_soflanArea_has_no_tail" xml:space="preserve">
+    <data name="Error_soflanArea_has_no_tail" xml:space="preserve">
         <value>The SoflanArea is missing a tail.</value>
     </data>
-    <data name="Diag_hold_has_no_tail" xml:space="preserve">
+    <data name="Error_hold_has_no_tail" xml:space="preserve">
         <value>The Hold is missing a tail.</value>
     </data>
-    <data name="Diag_BPM_change_event_not_found_at_0" xml:space="preserve">
+    <data name="Error_BPM_change_event_not_found_at_0" xml:space="preserve">
         <value>No BPM change event was found at tick 0.</value>
     </data>
     <data name="Diag_time_Signature_event_not_found_at_0" xml:space="preserve">
@@ -51,12 +51,15 @@
         <value>The main TIL {0} was not found. A new TIL with an initial speed of 1.0 has been created.</value>
     </data>
     <data name="Diag_note_overlapped_in_different_TIL" xml:space="preserve">
-        <value>Note is overlapping with other notes in a different TIL.</value>
+        <value>The note overlaps with note in other TILs. This may cause problems in the scroll speed of this note.</value>
     </data>
-    <data name="Diag_timeline_event_must_have_non_negative_timeline" xml:space="preserve">
+    <data name="Error_no_negative_timeline_event" xml:space="preserve">
         <value>Scroll speed change events must have a non-negative TIL value.</value>
     </data>
-    <data name="Diag_pairing_notes_incompatible" xml:space="preserve">
+    <data name="Error_note_must_have_non_negative_timeline" xml:space="preserve">
+        <value>Note must have a non-negative TIL value.</value>
+    </data>
+    <data name="Error_pairing_notes_incompatible" xml:space="preserve">
         <value>Note are incompatible for pairing.</value>
     </data>
     <data name="Error_air_parent_null" xml:space="preserve">
@@ -66,12 +69,12 @@
         <value>Parent of AirSlide cannot be null.</value>
     </data>
     <data name="Diag_set_length_smaller_than_unit" xml:space="preserve">
-        <value>Attempted to set length to {0}, but it was clamped to smallest value {1}.</value>
+        <value>Try to set the length of this note to {0}, but it has been constrained to the minimum value of {1}. This might be due to nodes in the original note having spacing less than {1}.</value>
     </data>
     <data name="Diag_concurrent_ex_effects" xml:space="preserve">
-        <value>Different EX effects coexist at the tick {0}: {1}</value>
+        <value>Different EX effects coexist at the tick {0}: {1}. The game may only display one of these.</value>
     </data>
     <data name="Diag_AirCrush_min_density_but_end_Control" xml:space="preserve">
-        <value>The converted AirCrush has a minimum density of {0}. However, the original AirCrash End is Control, resulting in the End actually being a Step.</value>
+        <value>The converted Crush has a minimum density of {0}. However, the original End of Crash is Control, resulting in the End actually being a Step.</value>
     </data>
 </root>

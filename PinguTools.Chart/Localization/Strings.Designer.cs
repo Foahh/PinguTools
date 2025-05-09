@@ -60,7 +60,7 @@ namespace PinguTools.Chart.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The converted AirCrush has a minimum density of {0}. However, the original AirCrash End is Control, resulting in the End actually being a Step..
+        ///   Looks up a localized string similar to The converted Crush has a minimum density of {0}. However, the original End of Crash is Control, resulting in the End actually being a Step..
         /// </summary>
         public static string Diag_AirCrush_min_density_but_end_Control {
             get {
@@ -69,47 +69,11 @@ namespace PinguTools.Chart.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No BPM change event was found at tick 0..
-        /// </summary>
-        public static string Diag_BPM_change_event_not_found_at_0 {
-            get {
-                return ResourceManager.GetString("Diag_BPM_change_event_not_found_at_0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Different EX effects coexist at the tick {0}: {1}.
+        ///   Looks up a localized string similar to Different EX effects coexist at the tick {0}: {1}. The game may only display one of these..
         /// </summary>
         public static string Diag_concurrent_ex_effects {
             get {
                 return ResourceManager.GetString("Diag_concurrent_ex_effects", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Hold is missing a tail..
-        /// </summary>
-        public static string Diag_hold_has_no_tail {
-            get {
-                return ResourceManager.GetString("Diag_hold_has_no_tail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified Air parent is invalid..
-        /// </summary>
-        public static string Diag_invalid_Air_parent {
-            get {
-                return ResourceManager.GetString("Diag_invalid_Air_parent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified AirSlide parent is invalid..
-        /// </summary>
-        public static string Diag_invalid_AirSlide_parent {
-            get {
-                return ResourceManager.GetString("Diag_invalid_AirSlide_parent", resourceCulture);
             }
         }
         
@@ -123,7 +87,7 @@ namespace PinguTools.Chart.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note is overlapping with other notes in a different TIL..
+        ///   Looks up a localized string similar to The note overlaps with note in other TILs. This may cause problems in the scroll speed of this note..
         /// </summary>
         public static string Diag_note_overlapped_in_different_TIL {
             get {
@@ -132,29 +96,11 @@ namespace PinguTools.Chart.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note are incompatible for pairing..
-        /// </summary>
-        public static string Diag_pairing_notes_incompatible {
-            get {
-                return ResourceManager.GetString("Diag_pairing_notes_incompatible", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Attempted to set length to {0}, but it was clamped to smallest value {1}..
+        ///   Looks up a localized string similar to Try to set the length of this note to {0}, but it has been constrained to the minimum value of {1}. This might be due to nodes in the original note having spacing less than {1}..
         /// </summary>
         public static string Diag_set_length_smaller_than_unit {
             get {
                 return ResourceManager.GetString("Diag_set_length_smaller_than_unit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The SoflanArea is missing a tail..
-        /// </summary>
-        public static string Diag_soflanArea_has_no_tail {
-            get {
-                return ResourceManager.GetString("Diag_soflanArea_has_no_tail", resourceCulture);
             }
         }
         
@@ -164,15 +110,6 @@ namespace PinguTools.Chart.Localization {
         public static string Diag_time_Signature_event_not_found_at_0 {
             get {
                 return ResourceManager.GetString("Diag_time_Signature_event_not_found_at_0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Scroll speed change events must have a non-negative TIL value..
-        /// </summary>
-        public static string Diag_timeline_event_must_have_non_negative_timeline {
-            get {
-                return ResourceManager.GetString("Diag_timeline_event_must_have_non_negative_timeline", resourceCulture);
             }
         }
         
@@ -191,6 +128,78 @@ namespace PinguTools.Chart.Localization {
         public static string Error_air_slide_parent_null {
             get {
                 return ResourceManager.GetString("Error_air_slide_parent_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No BPM change event was found at tick 0..
+        /// </summary>
+        public static string Error_BPM_change_event_not_found_at_0 {
+            get {
+                return ResourceManager.GetString("Error_BPM_change_event_not_found_at_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Hold is missing a tail..
+        /// </summary>
+        public static string Error_hold_has_no_tail {
+            get {
+                return ResourceManager.GetString("Error_hold_has_no_tail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified Air parent is invalid..
+        /// </summary>
+        public static string Error_invalid_Air_parent {
+            get {
+                return ResourceManager.GetString("Error_invalid_Air_parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified AirSlide parent is invalid..
+        /// </summary>
+        public static string Error_invalid_AirSlide_parent {
+            get {
+                return ResourceManager.GetString("Error_invalid_AirSlide_parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll speed change events must have a non-negative TIL value..
+        /// </summary>
+        public static string Error_no_negative_timeline_event {
+            get {
+                return ResourceManager.GetString("Error_no_negative_timeline_event", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note must have a non-negative TIL value..
+        /// </summary>
+        public static string Error_note_must_have_non_negative_timeline {
+            get {
+                return ResourceManager.GetString("Error_note_must_have_non_negative_timeline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note are incompatible for pairing..
+        /// </summary>
+        public static string Error_pairing_notes_incompatible {
+            get {
+                return ResourceManager.GetString("Error_pairing_notes_incompatible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The SoflanArea is missing a tail..
+        /// </summary>
+        public static string Error_soflanArea_has_no_tail {
+            get {
+                return ResourceManager.GetString("Error_soflanArea_has_no_tail", resourceCulture);
             }
         }
         

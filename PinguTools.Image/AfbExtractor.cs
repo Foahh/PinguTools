@@ -15,11 +15,7 @@ public class AfbExtractor(DdsChunkLocator chunks) : IConverter<AfbExtractor.Opti
 
         progress?.Report(Strings.Status_extracting);
         var files = chunks.Extract(data, chunks.Locate(data));
-        if (files.Length == 0)
-        {
-            diag.Throw(Strings.Error_no_DDS_chunks_found);
-            return;
-        }
+        if (files.Length == 0) throw new DiagnosticException(Strings.Error_no_DDS_chunks_found);
 
         ct.ThrowIfCancellationRequested();
 

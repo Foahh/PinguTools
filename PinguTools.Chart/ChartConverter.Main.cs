@@ -115,7 +115,7 @@ public partial class ChartConverter
 
         if (density == Time.SingleTick && end.Joint == Joint.C)
         {
-            diagnostic.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_AirCrush_min_density_but_end_Control, Time.SingleTick), new[] { start, end });
+            diagnostic.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_AirCrush_min_density_but_end_Control, density), new[] { start, end });
         }
 
         CreateNote<c2s.AirCrash>(start, x =>
@@ -171,7 +171,7 @@ public partial class ChartConverter
 
     private void ProcessAirSlide(mgxc.AirSlide airSlide)
     {
-        if (airSlide.PairNote?.PairNote != airSlide) diagnostic.Throw(Strings.Diag_invalid_AirSlide_parent, airSlide);
+        if (airSlide.PairNote?.PairNote != airSlide) throw new DiagnosticException(Strings.Error_invalid_AirSlide_parent, airSlide);
 
         var parent = pMap.GetValueOrDefault(airSlide.PairNote);
         var joints = airSlide.Children.OfType<mgxc.AirSlideJoint>().Prepend(airSlide.AsChild()).ToList();
@@ -203,7 +203,7 @@ public partial class ChartConverter
 
     private void ProcessAir(mgxc.Air airNote)
     {
-        if (airNote.PairNote?.PairNote != airNote) diagnostic.Throw(Strings.Diag_invalid_Air_parent, airNote);
+        if (airNote.PairNote?.PairNote != airNote) throw new DiagnosticException(Strings.Error_invalid_Air_parent, airNote);
 
         var note = CreateNote<mgxc.NegativeNote, c2s.Air>(nMap, airNote, x =>
         {
@@ -241,11 +241,7 @@ public partial class ChartConverter
 
     private void ProcessSoflanArea(mgxc.SoflanArea sla)
     {
-        if (sla.LastChild is not mgxc.SoflanAreaJoint tail)
-        {
-            diagnostic.Throw(Strings.Diag_soflanArea_has_no_tail, sla);
-            return;
-        }
+        if (sla.LastChild is not mgxc.SoflanAreaJoint tail) throw new DiagnosticException(Strings.Error_soflanArea_has_no_tail, sla);
 
         CreateNote<c2s.Sla>(sla, x =>
         {
@@ -255,11 +251,7 @@ public partial class ChartConverter
 
     private void ProcessHold(mgxc.Hold hold)
     {
-        if (hold.LastChild is not mgxc.HoldJoint tail)
-        {
-            diagnostic.Throw(Strings.Diag_hold_has_no_tail, hold);
-            return;
-        }
+        if (hold.LastChild is not mgxc.HoldJoint tail) throw new DiagnosticException(Strings.Error_hold_has_no_tail, hold);
 
         var note = CreateNote<c2s.Hold>(hold, x =>
         {

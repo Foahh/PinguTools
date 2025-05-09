@@ -13,9 +13,9 @@ namespace PinguTools.Chart;
 public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
 {
     private readonly Dictionary<int, List<mgxc.Note>> noteGroups = new();
-    private readonly Dictionary<(int Tick, int ReferenceTimeline), int> tickTimelineMap = new();
+    private readonly Dictionary<(int Tick, int ReferenceTil), int> tickTilMap = new();
 
-    // int = TimelineIds
+    // int = Til
     private readonly Dictionary<int, List<mgxc.SpeedEvent>> tilGroups = new();
 
     private int dcmTilId = -1;
@@ -82,7 +82,7 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
     protected void PostProcessEvent(mgxc.Chart mgxc)
     {
         var bpmEvents = mgxc.Events.Children.OfType<mgxc.BpmEvent>().OrderBy(e => e.Tick).ToList();
-        if (bpmEvents.Count <= 0 || bpmEvents[0].Tick != 0) diagnostic.Throw(Strings.Diag_BPM_change_event_not_found_at_0);
+        if (bpmEvents.Count <= 0 || bpmEvents[0].Tick != 0) throw new DiagnosticException(Strings.Error_BPM_change_event_not_found_at_0);
 
         var beatEvents = mgxc.Events.Children.OfType<mgxc.BeatEvent>().OrderBy(e => e.Bar).ToList();
         if (beatEvents.Count <= 0 || beatEvents[0].Bar != 0)
@@ -265,7 +265,7 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
 
         tilGroups.Clear();
         noteGroups.Clear();
-        tickTimelineMap.Clear();
+        tickTilMap.Clear();
     }
 
     // group events by timeline
@@ -273,7 +273,7 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
     {
         foreach (var til in events.Children.OfType<mgxc.TimelineEvent>())
         {
-            if (til.Timeline < 0) diagnostic.Throw(Strings.Diag_timeline_event_must_have_non_negative_timeline, til);
+            if (til.Timeline < 0) throw new DiagnosticException(Strings.Error_no_negative_timeline_event, til);
             var timelineId = til.Timeline + 1; // +1 for simplicity
             TryCreateGroup(timelineId);
             tilGroups[timelineId].Add(til);
@@ -288,7 +288,7 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
         {
             GroupNoteByTimeline(note, dcmEvents);
             var timeline = note.Timeline + 1; // +1 for simplicity
-            if (timeline < 0) diagnostic.Throw(Strings.Diag_timeline_event_must_have_non_negative_timeline);
+            if (timeline < 0) throw new DiagnosticException(Strings.Error_note_must_have_non_negative_timeline, note);
 
             // finding note speed event that affect the note
             var baseDcm = dcmEvents.Where(p => p.Tick <= note.Tick).OrderByDescending(p => p.Tick).FirstOrDefault();
@@ -296,7 +296,7 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
             if (baseDcm != null && baseDcm.Speed != 1m)
             {
                 var keyPair = (baseDcm.Tick, timeline);
-                if (tickTimelineMap.TryGetValue(keyPair, out var existingId))
+                if (tickTilMap.TryGetValue(keyPair, out var existingId))
                 {
                     noteGroups[existingId].Add(note);
                 }
@@ -305,7 +305,7 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
                     var newId = dcmTilId--;
                     TryCreateGroup(newId);
 
-                    tickTimelineMap[keyPair] = newId;
+                    tickTilMap[keyPair] = newId;
                     tilGroups[newId].Add(baseDcm);
                     noteGroups[newId].Add(note);
                 }
@@ -321,7 +321,7 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
     // Convert the note speed event to the timeline event for each dcm group
     protected void AbsolutizeNoteSpeed()
     {
-        foreach (var ((_, refTil), dcmTil) in tickTimelineMap.ToList())
+        foreach (var ((_, refTil), dcmTil) in tickTilMap.ToList())
         {
             var notes = noteGroups[dcmTil];
             var lastTick = notes.Select(p => p.Tick).Append(0).Max() + Time.SingleTick;

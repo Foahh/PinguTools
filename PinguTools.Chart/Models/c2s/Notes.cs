@@ -4,7 +4,7 @@
 */
 
 using PinguTools.Chart.Localization;
-using System.Data;
+using PinguTools.Common;
 using System.Text.Json.Serialization;
 
 namespace PinguTools.Chart.Models.c2s;
@@ -65,7 +65,7 @@ public class Air : Note, IPairable
     public override string Id => $"A{Direction}";
     [JsonIgnore] public override string Text => $"{base.Text}\t{ParentId}\t{Color}";
     public Note? Parent { get; set; }
-    [JsonIgnore] public string ParentId => Parent?.Id ?? throw new NoNullAllowedException(Strings.Error_air_parent_null);
+    [JsonIgnore] public string ParentId => Parent?.Id ?? throw new DiagnosticException(Strings.Error_air_parent_null, this);
 }
 
 public class AirSlide : LongHeightNote, IPairable
@@ -76,7 +76,7 @@ public class AirSlide : LongHeightNote, IPairable
     public override string Id => $"AS{Joint}";
     [JsonIgnore] public override string Text => $"{base.Text}\t{ParentId}\t{Height.Result:F1}\t{Length.Result}\t{EndLane}\t{EndWidth}\t{EndHeight.Result:F1}\t{Color}";
     public Note? Parent { get; set; }
-    [JsonIgnore] public string ParentId => Parent?.Id ?? throw new NoNullAllowedException(Strings.Error_air_slide_parent_null);
+    [JsonIgnore] public string ParentId => Parent?.Id ?? throw new DiagnosticException(Strings.Error_air_slide_parent_null, this);
 }
 
 public class AirCrash : LongHeightNote

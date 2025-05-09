@@ -38,6 +38,7 @@ public partial class ActionService : ObservableObject
         }
         catch (DiagnosticException ex)
         {
+            diagnostics.Report(DiagnosticSeverity.Error, ex.Message, ex.Target);
             model.StackTrace = ex.ToString();
             Status = Strings.Status_error;
         }

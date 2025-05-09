@@ -18,9 +18,6 @@ public interface IDiagnostic
 
     void Report(Diagnostic diagnostic);
     void Report(DiagnosticSeverity severity, string message, object? target = null);
-
-    [DoesNotReturn]
-    void Throw(string msg, object? target = null);
 }
 
 public class DiagnosticReporter : IDiagnostic
@@ -39,12 +36,5 @@ public class DiagnosticReporter : IDiagnostic
     public void Report(DiagnosticSeverity severity, string message, object? target = null)
     {
         diagnostics.Add(new Diagnostic(severity, message, target));
-    }
-
-    [DoesNotReturn]
-    public void Throw(string msg, object? target = null)
-    {
-        diagnostics.Add(new Diagnostic(DiagnosticSeverity.Error, msg));
-        throw new DiagnosticException(msg);
     }
 }

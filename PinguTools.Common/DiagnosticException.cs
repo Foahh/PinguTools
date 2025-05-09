@@ -2,11 +2,15 @@
 
 public class DiagnosticException : Exception
 {
-    public DiagnosticException(string message) : base(message)
+    public object? Target { get; }
+
+    public DiagnosticException(string message, object? target = null) : base(message)
     {
+        Target = target;
     }
 
-    public DiagnosticException(string message, Exception innerException) : base(message, innerException)
+    public DiagnosticException(string message, Exception innerException, object? target = null) : base(message, innerException)
     {
+        Target = target;
     }
 }

@@ -253,8 +253,7 @@ public partial class MgxcParser
                     lastN.MakePair(newP);
                     break;
                 default:
-                    diagnostic.Report(DiagnosticSeverity.Error, Strings.Diag_pairing_notes_incompatible, new[] { note, lastNote });
-                    break;
+                    throw new DiagnosticException(Strings.Error_pairing_notes_incompatible, new[] { note, lastNote });
             }
         }
 
