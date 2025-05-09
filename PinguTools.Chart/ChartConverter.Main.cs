@@ -103,15 +103,18 @@ public partial class ChartConverter
     private void FinalizeAirCrashJoint(mgxc.AirCrash parent, mgxc.AirCrashJoint start, mgxc.AirCrashJoint end, int jointCount)
     {
         var length = end.Tick - start.Tick;
+        var density = jointCount switch
+        {
+            0 => 0,
+            1 => length + Time.SingleTick,
+            _ => length / (jointCount - 1)
+        };
+        if (end.Joint == Joint.C) length -= Time.SingleTick;
+
         CreateNote<c2s.AirCrash>(start, x =>
         {
             x.SetLengthSafe(length, diagnostic);
-            x.Density = jointCount switch
-            {
-                0 => 0,
-                1 => length + Time.SingleTick,
-                _ => length / (jointCount - 1)
-            };
+            x.Density = density;
             x.Color = parent.Color;
             x.Height = start.Height;
             x.EndLane = end.Lane;
@@ -135,10 +138,8 @@ public partial class ChartConverter
             }
             else jointCount++;
         }
-
-        var tail = joints[^1];
-        if (curr.Joint != Joint.D) return; // alternatively, curr == tail
-        FinalizeAirCrashJoint(airCrash, curr, tail, jointCount);
+        if (curr.Joint != Joint.D) return;
+        FinalizeAirCrashJoint(airCrash, curr, joints[^1], jointCount);
     }
 
     private void ProcessAirTrace(mgxc.AirCrash airCrash)
