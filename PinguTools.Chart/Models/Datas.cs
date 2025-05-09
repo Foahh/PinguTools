@@ -23,9 +23,9 @@ public readonly record struct Time(int Original) : IComparable<Time>
     private const decimal FACTOR = (decimal)CtsResolution / MarResolution;
 
     public int Rounded { get; } = (int)Math.Round((decimal)Original / SingleTick) * SingleTick;
-    public int Measure => Rounded / MarResolution;
-    public int Offset => (int)(Rounded % MarResolution * FACTOR);
     public int Scaled => (int)(Rounded * FACTOR);
+
+    public (int Measure, int Offset) Position => (Rounded / MarResolution, (int)(Rounded % MarResolution * FACTOR));
 
     public int CompareTo(Time other)
     {

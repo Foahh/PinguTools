@@ -18,7 +18,15 @@ public abstract class Node
     }
 
     public abstract string Id { get; }
-    [JsonIgnore] public virtual string Text => $"{Id}\t{Tick.Measure}\t{Tick.Offset}";
+
+    [JsonIgnore] public virtual string Text
+    {
+        get
+        {
+            var pos = Tick.Position;
+            return $"{Id}\t{pos.Measure}\t{pos.Offset}";
+        }
+    }
 }
 
 public abstract class Note : Node
