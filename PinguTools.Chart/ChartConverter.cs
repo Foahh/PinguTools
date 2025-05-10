@@ -1,4 +1,5 @@
 ﻿using PinguTools.Chart.Localization;
+using PinguTools.Chart.Models;
 using PinguTools.Common;
 using PinguTools.Common.Localization;
 using System.Text;
@@ -31,6 +32,14 @@ public partial class ChartConverter(MgxcParser parser) : IConverter<ChartConvert
         foreach (var note in mgxc.Notes.Children) ConvertNote(note);
         ConvertEvent(mgxc);
 
+        if (mgxc.Meta.BgmEnableBarOffset)
+        {
+            var sig = mgxc.Meta.BgmInitialTimeSignature;
+            var offset = (int)Math.Round((decimal)Time.MarResolution / sig.Denominator * sig.Numerator);
+            foreach (var e in Events.Where(e => e.Tick != 0)) e.Tick = e.Tick.Original + offset;
+            foreach (var n in Notes) n.Tick = n.Tick.Original + offset;
+        }
+
         progress?.Report(CommonStrings.Status_writing);
 
         var sb = new StringBuilder();
@@ -57,7 +66,7 @@ public partial class ChartConverter(MgxcParser parser) : IConverter<ChartConvert
             }
             catch (Exception ex)
             {
-                diagnostic.Report(DiagnosticSeverity.Error, ex.Message, e);
+                diagnostic.Report(DiagnosticSeverity.Error, ex.Message, e.Tick.Original, e);
             }
         }
         sb.AppendLine();
@@ -69,7 +78,7 @@ public partial class ChartConverter(MgxcParser parser) : IConverter<ChartConvert
             }
             catch (Exception ex)
             {
-                diagnostic.Report(DiagnosticSeverity.Error, ex.Message, n);
+                diagnostic.Report(DiagnosticSeverity.Error, ex.Message, n.Tick.Original, n);
             }
         }
 

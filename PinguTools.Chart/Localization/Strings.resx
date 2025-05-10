@@ -72,7 +72,7 @@
         <value>Try to set the length of this note to {0}, but it has been constrained to the minimum value of {1}. This might be due to nodes in the original note having spacing less than {1}.</value>
     </data>
     <data name="Diag_concurrent_ex_effects" xml:space="preserve">
-        <value>Different EX effects coexist at the tick {0}: {1}. The game may only display one of these.</value>
+        <value>Different EX effects coexist at the same tick: {0}. The game may only display one of these.</value>
     </data>
     <data name="Diag_AirCrush_min_density_but_end_Control" xml:space="preserve">
         <value>The converted Crush has a minimum density of {0}. However, the original End of Crash is Control, resulting in the End actually being a Step.</value>

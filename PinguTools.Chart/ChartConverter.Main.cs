@@ -103,19 +103,19 @@ public partial class ChartConverter
 
     private void FinalizeAirCrashJoint(mgxc.AirCrash parent, mgxc.AirCrashJoint start, mgxc.AirCrashJoint end, int jointCount)
     {
-        var length = end.Tick - start.Tick;
+        var length = end.Tick.Round - start.Tick.Round;
         if (end.Joint == Joint.D) jointCount -= 1;
 
         Time density = jointCount == 0 ? 0 : length / jointCount;
         if (end.Joint == Joint.C && jointCount > 0)
         {
-            if (length <= Time.SingleTick) density += Time.SingleTick;
+            if (length <= Time.SingleTick) density = density.Round + Time.SingleTick;
             else length -= Time.SingleTick;
         }
 
         if (density == Time.SingleTick && end.Joint == Joint.C)
         {
-            diagnostic.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_AirCrush_min_density_but_end_Control, density), new[] { start, end });
+            diagnostic.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_AirCrush_min_density_but_end_Control, density), start.Tick.Original, new[] { start, end });
         }
 
         CreateNote<c2s.AirCrash>(start, x =>
@@ -158,7 +158,7 @@ public partial class ChartConverter
             var next = joints[i + 1];
             CreateNote<c2s.AirCrash>(curr, x =>
             {
-                x.SetLengthSafe(next.Tick - curr.Tick, diagnostic);
+                x.SetLengthSafe(next.Tick.Round - curr.Tick.Round, diagnostic);
                 x.EndLane = next.Lane;
                 x.EndWidth = next.Width;
                 x.Height = curr.Height;
@@ -171,7 +171,7 @@ public partial class ChartConverter
 
     private void ProcessAirSlide(mgxc.AirSlide airSlide)
     {
-        if (airSlide.PairNote?.PairNote != airSlide) throw new DiagnosticException(Strings.Error_invalid_AirSlide_parent, airSlide);
+        if (airSlide.PairNote?.PairNote != airSlide) throw new DiagnosticException(Strings.Error_invalid_AirSlide_parent, airSlide.Tick.Original, airSlide);
 
         var parent = pMap.GetValueOrDefault(airSlide.PairNote);
         var joints = airSlide.Children.OfType<mgxc.AirSlideJoint>().Prepend(airSlide.AsChild()).ToList();
@@ -185,7 +185,7 @@ public partial class ChartConverter
                 x.Parent = prev;
                 x.Color = airSlide.Color;
                 x.Height = curr.Height;
-                x.SetLengthSafe(next.Tick - curr.Tick, diagnostic);
+                x.SetLengthSafe(next.Tick.Round - curr.Tick.Round, diagnostic);
                 x.Joint = next.Joint;
                 x.EndLane = next.Lane;
                 x.EndWidth = next.Width;
@@ -203,7 +203,7 @@ public partial class ChartConverter
 
     private void ProcessAir(mgxc.Air airNote)
     {
-        if (airNote.PairNote?.PairNote != airNote) throw new DiagnosticException(Strings.Error_invalid_Air_parent, airNote);
+        if (airNote.PairNote?.PairNote != airNote) throw new DiagnosticException(Strings.Error_invalid_Air_parent, airNote.Tick.Original, airNote);
 
         var note = CreateNote<mgxc.NegativeNote, c2s.Air>(nMap, airNote, x =>
         {
@@ -224,7 +224,7 @@ public partial class ChartConverter
             var index = i;
             var note = CreateNote<c2s.Slide>(curr, x =>
             {
-                x.SetLengthSafe(next.Tick - curr.Tick, diagnostic);
+                x.SetLengthSafe(next.Tick.Round - curr.Tick.Round, diagnostic);
                 x.Joint = next.Joint;
                 x.EndLane = next.Lane;
                 x.EndWidth = next.Width;
@@ -241,21 +241,21 @@ public partial class ChartConverter
 
     private void ProcessSoflanArea(mgxc.SoflanArea sla)
     {
-        if (sla.LastChild is not mgxc.SoflanAreaJoint tail) throw new DiagnosticException(Strings.Error_soflanArea_has_no_tail, sla);
+        if (sla.LastChild is not mgxc.SoflanAreaJoint tail) throw new DiagnosticException(Strings.Error_soflanArea_has_no_tail, sla.Tick.Original, sla);
 
         CreateNote<c2s.Sla>(sla, x =>
         {
-            x.Length = tail.Tick - sla.Tick;
+            x.Length = tail.Tick.Round - sla.Tick.Round;
         });
     }
 
     private void ProcessHold(mgxc.Hold hold)
     {
-        if (hold.LastChild is not mgxc.HoldJoint tail) throw new DiagnosticException(Strings.Error_hold_has_no_tail, hold);
+        if (hold.LastChild is not mgxc.HoldJoint tail) throw new DiagnosticException(Strings.Error_hold_has_no_tail, hold.Tick.Original, hold);
 
         var note = CreateNote<c2s.Hold>(hold, x =>
         {
-            x.SetLengthSafe(tail.Tick - hold.Tick, diagnostic);
+            x.SetLengthSafe(tail.Tick.Round - hold.Tick.Round, diagnostic);
             x.Effect = hold.Effect;
         });
         pMap[tail] = note;
@@ -296,7 +296,7 @@ public partial class ChartConverter
 
         foreach (var (id, tilEvents) in tilGroups)
         {
-            var lastTilTick = mgxc.GetLastTick(p => p.Timeline == id);
+            Time lastTilTick = mgxc.GetLastTick(p => p.Timeline == id);
 
             if (tilEvents.Count <= 0) continue;
             for (var i = 0; i < tilEvents.Count - 1; i++)
@@ -307,7 +307,7 @@ public partial class ChartConverter
                 {
                     Timeline = id,
                     Tick = curr.Tick,
-                    Length = next.Tick - curr.Tick,
+                    Length = next.Tick.Round - curr.Tick.Round,
                     Speed = curr.Speed
                 });
             }
@@ -316,7 +316,7 @@ public partial class ChartConverter
             {
                 Timeline = id,
                 Tick = lastEvent.Tick,
-                Length = Math.Max(lastTilTick - lastEvent.Tick, Time.SingleTick),
+                Length = Math.Max(lastTilTick.Round - lastEvent.Tick.Round, Time.SingleTick),
                 Speed = lastEvent.Speed
             });
         }

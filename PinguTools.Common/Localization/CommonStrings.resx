@@ -1,70 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
-                id="root" xmlns="">
-        <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>1.3</value>
-    </resheader>
-    <resheader name="reader">
-        <value>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root"
+              xmlns="">
+    <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>
             System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
             PublicKeyToken=b77a5c561934e089
         </value>
-    </resheader>
-    <resheader name="writer">
-        <value>
+  </resheader>
+  <resheader name="writer">
+    <value>
             System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
             PublicKeyToken=b77a5c561934e089
         </value>
-    </resheader>
-    <data name="Error_file_not_found" xml:space="preserve">
+  </resheader>
+  <data name="Error_file_not_found" xml:space="preserve">
         <value>The specified file was not found: {0}</value>
     </data>
-    <data name="Status_converting" xml:space="preserve">
+  <data name="Status_converting" xml:space="preserve">
         <value>Converting...</value>
     </data>
-    <data name="Status_writing" xml:space="preserve">
+  <data name="Status_writing" xml:space="preserve">
         <value>Writing...</value>
     </data>
-    <data name="Error_song_id_is_not_set" xml:space="preserve">
+  <data name="Error_song_id_is_not_set" xml:space="preserve">
     <value>Song ID is not set.</value>
   </data>
-    <data name="Error_audio_file_is_not_set" xml:space="preserve">
+  <data name="Error_audio_file_is_not_set" xml:space="preserve">
     <value>Audio file is not set.</value>
   </data>
-    <data name="Error_chart_file_is_not_set" xml:space="preserve">
+  <data name="Error_chart_file_is_not_set" xml:space="preserve">
     <value>Chart file is not set.</value>
   </data>
-    <data name="Error_input_path_is_not_set" xml:space="preserve">
+  <data name="Error_input_path_is_not_set" xml:space="preserve">
     <value>Input path is not set.</value>
   </data>
-    <data name="Error_jacket_file_is_not_set" xml:space="preserve">
+  <data name="Error_jacket_file_is_not_set" xml:space="preserve">
     <value>Jacket file is not set.</value>
   </data>
-    <data name="Error_we_event_id_is_not_set" xml:space="preserve">
+  <data name="Error_we_event_id_is_not_set" xml:space="preserve">
         <value>World's End Event ID is not set.</value>
     </data>
-    <data name="Status_reading" xml:space="preserve">
+  <data name="Status_reading" xml:space="preserve">
     <value>Reading...</value>
   </data>
-    <data name="Status_converting_chart" xml:space="preserve">
+  <data name="Status_converting_chart" xml:space="preserve">
     <value>Converting Chart...</value>
   </data>
-    <data name="Error_stage_id_is_not_set" xml:space="preserve">
+  <data name="Error_stage_id_is_not_set" xml:space="preserve">
     <value>Stage ID is not set.</value>
   </data>
-    <data name="Error_background_file_is_not_set" xml:space="preserve">
+  <data name="Error_background_file_is_not_set" xml:space="preserve">
     <value>Background File is not set.</value>
   </data>
-    <data name="Status_converting_jacket" xml:space="preserve">
+  <data name="Status_converting_jacket" xml:space="preserve">
     <value>Converting Jacket...</value>
   </data>
-    <data name="Status_converting_audio" xml:space="preserve">
+  <data name="Status_converting_audio" xml:space="preserve">
     <value>Converting Audio...</value>
   </data>
 </root>

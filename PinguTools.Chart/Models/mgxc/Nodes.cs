@@ -23,11 +23,6 @@ public abstract class TimeNode<T> where T : TimeNode<T>
 
     public virtual Time Tick { get; set; }
 
-    public override string ToString()
-    {
-        return $"{GetType().Name} [Tick: {Tick}]";
-    }
-
     public T? AppendChild(T newNode)
     {
         var parent = newNode.Parent;
@@ -106,13 +101,7 @@ public abstract class TimeNode<T> where T : TimeNode<T>
 
     public int GetLastTick()
     {
-        return ChildNodes.Select(n => n.GetLastTick()).Prepend(Tick).Max();
-    }
-
-    public void Offset(int offset)
-    {
-        Tick = Math.Max(Tick + offset, 0);
-        foreach (var child in ChildNodes) child.Offset(offset);
+        return ChildNodes.Select(n => n.GetLastTick()).Prepend(Tick.Original).Max();
     }
 
     protected void SortChild(Comparison<T> comparison)
@@ -130,11 +119,6 @@ public class Note : TimeNode<Note>
     public virtual int Lane { get; set; }
     public virtual int Width { get; set; } = 1;
     public virtual int Timeline { get; set; }
-
-    public override string ToString()
-    {
-        return $"{base.ToString()} [Lane: {Lane}, Width: {Width}, Timeline: {Timeline}]";
-    }
 
     public bool IsInside(Note other, out bool isSmaller)
     {

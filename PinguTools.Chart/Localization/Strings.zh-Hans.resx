@@ -168,8 +168,8 @@
         <value>AirSlide的父级不能为 null。</value>
     </data>
     <data name="Diag_concurrent_ex_effects" xml:space="preserve">
-    <value>时间 {0} 同时存在多个不同的 EX 效果：{1}。游戏可能只会显示其中一个。</value>
-  </data>
+        <value>同一时间上存在多个不同的 EX 效果：{0}。游戏可能只会显示其中一个。</value>
+    </data>
     <data name="Diag_AirCrush_min_density_but_end_Control" xml:space="preserve">
     <value>转换后的 Crush 拥有最小密度 {0}；而原始 Crash 的终点为 Control，导致终点最终实际显示为 Step。</value>
   </data>

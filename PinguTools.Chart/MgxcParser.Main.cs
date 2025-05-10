@@ -253,7 +253,7 @@ public partial class MgxcParser
                     lastN.MakePair(newP);
                     break;
                 default:
-                    throw new DiagnosticException(Strings.Error_pairing_notes_incompatible, new[] { note, lastNote });
+                    throw new DiagnosticException(Strings.Error_pairing_notes_incompatible, note.Tick.Original, new[] { note, lastNote });
             }
         }
 

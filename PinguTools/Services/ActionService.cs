@@ -44,13 +44,13 @@ public partial class ActionService : ObservableObject
         }
         catch (DiagnosticException ex)
         {
-            diagnostics.Report(DiagnosticSeverity.Error, ex.Message, ex.Target);
+            diagnostics.Report(DiagnosticSeverity.Error, ex.Message, ex.Tick, ex.Target);
             model.StackTrace = ex.ToString();
         }
-        catch (Exception ex)
+        catch
         {
-            model.StackTrace = ex.ToString();
-            diagnostics.Report(DiagnosticSeverity.Error, ex.Message);
+            ip.Report(Strings.Status_error);
+            throw;
         }
         finally
         {

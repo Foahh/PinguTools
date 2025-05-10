@@ -18,86 +18,88 @@
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
 
-    <Window.Resources>
-        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
-            <Setter Property="TextWrapping" Value="Wrap" />
-        </Style>
-    </Window.Resources>
-
     <Grid Margin="8">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <DataGrid
+        <ListView
+            x:Name="DiagnosticsListView"
             Margin="8"
-            AlternationCount="1000"
-            AutoGenerateColumns="False"
             ItemsSource="{Binding Diagnostics}"
-            RowDetailsVisibilityMode="VisibleWhenSelected"
+            AlternationCount="1000"
             ScrollViewer.CanContentScroll="True"
             ScrollViewer.HorizontalScrollBarVisibility="Auto"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
+            SelectedItem="{Binding SelectedDiagnostic}"
             SelectionMode="Single">
 
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Width="40" Header="#">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock HorizontalAlignment="Center"
-                                       Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=AlternationIndex}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Width="12"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Height="12">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Severity}"
+                                                             Value="{x:Static common:DiagnosticSeverity.Error}">
+                                                    <Setter Property="Source" Value="{StaticResource ErrorIcon}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Severity}"
+                                                             Value="{x:Static common:DiagnosticSeverity.Warning}">
+                                                    <Setter Property="Source" Value="{StaticResource WarningIcon}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Severity}"
+                                                             Value="{x:Static common:DiagnosticSeverity.Information}">
+                                                    <Setter Property="Source" Value="{StaticResource InfoIcon}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
 
-                <DataGridTemplateColumn Width="40">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Width="12" Height="12">
-                                <Image.Style>
-                                    <Style TargetType="Image">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Severity}"
-                                                         Value="{x:Static common:DiagnosticSeverity.Error}">
-                                                <Setter Property="Source" Value="{StaticResource ErrorIcon}" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Severity}"
-                                                         Value="{x:Static common:DiagnosticSeverity.Warning}">
-                                                <Setter Property="Source" Value="{StaticResource WarningIcon}" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Severity}"
-                                                         Value="{x:Static common:DiagnosticSeverity.Information}">
-                                                <Setter Property="Source" Value="{StaticResource InfoIcon}" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                    <GridViewColumn Header="{x:Static localization:Strings.Label_Time}" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Position}" TextWrapping="Wrap" HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
 
-                <DataGridTextColumn
-                    Width="*"
-                    ElementStyle="{StaticResource WrapText}"
-                    IsReadOnly="True"
-                    Binding="{Binding Message}"
-                    Header="{x:Static localization:Strings.Label_Message}" />
-            </DataGrid.Columns>
+                    <GridViewColumn Header="{x:Static localization:Strings.Label_Message}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Text="{Binding Message}" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
-            <DataGrid.RowDetailsTemplate>
-                <DataTemplate>
-                    <controls:ObjectTreeView SelectedObject="{Binding Target}" />
-                </DataTemplate>
-            </DataGrid.RowDetailsTemplate>
-        </DataGrid>
-
+        <GroupBox Header="{x:Static localization:Strings.Label_Details}" Grid.Row="2" Margin="8,0,8,0">
+            <i:Interaction.Behaviors>
+                <behaviors:HideIfNullValueBehavior Value="{Binding SelectedDiagnostic}" />
+            </i:Interaction.Behaviors>
+            <controls:ObjectTreeView SelectedObject="{Binding SelectedDiagnostic}" />
+        </GroupBox>
 
         <Expander
-            Grid.Row="2"
+            Grid.Row="3"
             Margin="8,0,8,8"
             Header="{x:Static localization:Strings.Label_StackTrace}">
             <i:Interaction.Behaviors>
@@ -116,7 +118,7 @@
         </Expander>
 
         <StackPanel
-            Grid.Row="3"
+            Grid.Row="4"
             Margin="8"
             HorizontalAlignment="Right">
             <Button

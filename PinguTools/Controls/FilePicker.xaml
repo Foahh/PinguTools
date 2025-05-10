@@ -8,7 +8,6 @@
     </UserControl.Resources>
 
     <StackPanel>
-
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="{Binding Label, RelativeSource={RelativeSource AncestorType=UserControl}}">
                 <TextBlock.Style>
@@ -49,6 +48,5 @@
                 Margin="0,0,4,0"
                 Text="{Binding Path, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay}" />
         </DockPanel>
-
     </StackPanel>
 </UserControl>

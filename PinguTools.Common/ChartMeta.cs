@@ -55,13 +55,7 @@ public class ChartMeta
     public decimal BgmPreviewStop { get; set; }
     public bool BgmEnableBarOffset { get; set; } = true;
     public decimal BgmInitialBpm { get; set; }
-    public Beat BgmInitialTimeSignature { get; set; } = new(4, 4);
-
-    public class Beat(int numerator, int denominator)
-    {
-        public int Numerator { get; set; } = numerator;
-        public int Denominator { get; set; } = denominator;
-    }
+    public TimeSignature BgmInitialTimeSignature { get; set; } = new(0, 4, 4);
 }
 
 public enum Difficulty

@@ -11,11 +11,7 @@ namespace PinguTools.Chart.Models.c2s;
 
 public abstract class Node
 {
-    public Time Tick
-    {
-        get;
-        set => field = Math.Max(value, 0);
-    }
+    public Time Tick { get; set; }
 
     public abstract string Id { get; }
 
@@ -45,9 +41,9 @@ public abstract class LongNote : Note
     public int EndLane { get; set; }
     public int EndWidth { get; set; }
 
-    public void SetLengthSafe(Time value, IDiagnostic diag)
+    public void SetLengthSafe(int value, IDiagnostic diag)
     {
-        if (value < Time.SingleTick) diag.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_set_length_smaller_than_unit, value, Time.SingleTick), this);
+        if (value < Time.SingleTick) diag.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_set_length_smaller_than_unit, value, Time.SingleTick), Tick.Original, this);
         Length = Math.Max(Time.SingleTick, value);
     }
 }

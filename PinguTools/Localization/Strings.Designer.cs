@@ -132,15 +132,6 @@ namespace PinguTools.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Details.
-        /// </summary>
-        public static string Button_Show_Details {
-            get {
-                return ResourceManager.GetString("Button_Show_Details", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Meta is not set..
         /// </summary>
         public static string Error_meta_is_not_set {
@@ -182,6 +173,15 @@ namespace PinguTools.Localization {
         public static string Label_Culprit {
             get {
                 return ResourceManager.GetString("Label_Culprit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Label_Details {
+            get {
+                return ResourceManager.GetString("Label_Details", resourceCulture);
             }
         }
         
@@ -272,6 +272,15 @@ namespace PinguTools.Localization {
         public static string Label_Stage_ID {
             get {
                 return ResourceManager.GetString("Label_Stage_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string Label_Time {
+            get {
+                return ResourceManager.GetString("Label_Time", resourceCulture);
             }
         }
         
