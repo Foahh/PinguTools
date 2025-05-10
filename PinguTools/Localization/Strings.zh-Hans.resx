@@ -176,8 +176,8 @@
     <value>诊断</value>
 </data>
     <data name="Status_idle" xml:space="preserve">
-    <value>空闲</value>
-</data>
+        <value>空闲中</value>
+    </data>
     <data name="Title_select_the_input_file" xml:space="preserve">
     <value>选择输入文件</value>
 </data>
@@ -197,11 +197,11 @@
     <value>正在启动...</value>
 </data>
     <data name="Status_done" xml:space="preserve">
-    <value>完成！</value>
-</data>
+        <value>已完成</value>
+    </data>
     <data name="Status_error" xml:space="preserve">
-    <value>错误！</value>
-</data>
+        <value>发生错误</value>
+    </data>
     <data name="Status_collecting" xml:space="preserve">
     <value>正在读取...</value>
 </data>

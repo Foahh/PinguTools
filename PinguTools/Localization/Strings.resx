@@ -95,10 +95,10 @@
     <value>Starting...</value>
   </data>
     <data name="Status_done" xml:space="preserve">
-    <value>Done!</value>
+    <value>Done</value>
   </data>
     <data name="Status_error" xml:space="preserve">
-    <value>Error!</value>
+    <value>Error</value>
   </data>
     <data name="Status_collecting" xml:space="preserve">
     <value>Collecting...</value>

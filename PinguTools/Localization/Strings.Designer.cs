@@ -285,7 +285,7 @@ namespace PinguTools.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Done!.
+        ///   Looks up a localized string similar to Done.
         /// </summary>
         public static string Status_done {
             get {
@@ -294,7 +294,7 @@ namespace PinguTools.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error!.
+        ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Status_error {
             get {

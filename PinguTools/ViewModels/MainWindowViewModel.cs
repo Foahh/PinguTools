@@ -30,7 +30,8 @@ public partial class MainWindowViewModel : ViewModel
     [ObservableProperty]
     public partial string UpdateStatus { get; set; } = string.Empty;
 
-    public string Status => actions.Status ?? Strings.Status_idle;
+    public string Status => actions.Status;
+    public DateTime StatusTime => actions.StatusTime;
 
     [RelayCommand]
     public async Task UpdateCheck()

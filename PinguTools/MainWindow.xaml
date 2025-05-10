@@ -21,6 +21,10 @@
     <DockPanel LastChildFill="True">
         <StatusBar DockPanel.Dock="Bottom" Padding="2, 0">
             <StatusBarItem>
+                <TextBlock Text="{Binding StatusTime, StringFormat='{}{0:HH:mm:ss}'}" />
+            </StatusBarItem>
+            <Separator Margin="2,0" />
+            <StatusBarItem>
                 <TextBlock Text="{Binding Status}" />
             </StatusBarItem>
             <Separator Margin="2,0" />
