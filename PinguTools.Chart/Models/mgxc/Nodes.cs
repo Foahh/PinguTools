@@ -50,22 +50,6 @@ public abstract class TimeNode<T> where T : TimeNode<T>
         return newNode;
     }
 
-    public T? InsertAfter(T newNode, T? referenceNode)
-    {
-        if (referenceNode == null) return AppendChild(newNode);
-        var parent = newNode.Parent;
-        if (parent != null && !parent.RemoveChild(newNode)) return null;
-
-        var afterIndex = ChildNodes.FindIndex(x => x == referenceNode);
-        if (afterIndex == -1) return AppendChild(newNode);
-
-        newNode.Parent = (T)this;
-        ChildNodes.Insert(afterIndex + 1, newNode);
-
-        ArrangeSibling();
-        return newNode;
-    }
-
     public bool RemoveChild(T child)
     {
         var childIndex = ChildNodes.FindIndex(x => x == child);
@@ -162,10 +146,10 @@ public class Note : TimeNode<Note>
         foreach (var child in Children.OfType<NegativeNote>().ToList())
         {
             if (child.PairNote == null) continue;
-            Note? target = child.PairNote;
-            while (target != null && target.Parent != this) target = target.Parent;
-            if (target == null || target.Parent != this) continue;
-            InsertAfter(child, target);
+            Note? pair = child.PairNote;
+            while (pair != null && pair.Parent != this) pair = pair.Parent;
+            if (pair == null || pair.Parent != this) continue;
+            InsertBefore(pair, child);
         }
     }
 }
