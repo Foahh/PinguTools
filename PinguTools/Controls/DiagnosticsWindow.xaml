@@ -73,7 +73,8 @@
                     <GridViewColumn Header="{x:Static localization:Strings.Label_Time}" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Position}" TextWrapping="Wrap" HorizontalAlignment="Center"
+                                <TextBlock ToolTip="{x:Static localization:Strings.Tooltip_Time}"
+                                           Text="{Binding Position}" TextWrapping="Wrap" HorizontalAlignment="Center"
                                            VerticalAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

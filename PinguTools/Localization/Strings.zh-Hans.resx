@@ -260,9 +260,12 @@
     <value>背景 (1920×1080): </value>
   </data>
     <data name="Label_Time" xml:space="preserve">
-    <value>时间</value>
-  </data>
+        <value>时间</value>
+    </data>
     <data name="Label_Details" xml:space="preserve">
     <value>详细</value>
   </data>
+    <data name="Tooltip_Time" xml:space="preserve">
+        <value>{小节}:{拍号}.{刻}</value>
+    </data>
 </root>

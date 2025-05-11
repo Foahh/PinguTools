@@ -163,4 +163,7 @@
   <data name="Label_Details" xml:space="preserve">
     <value>Details</value>
   </data>
+  <data name="Tooltip_Time" xml:space="preserve">
+    <value>{Bar}:{Beat}.{Tick}</value>
+  </data>
 </root>

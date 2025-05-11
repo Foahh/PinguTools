@@ -438,6 +438,15 @@ namespace PinguTools.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {Bar}:{Beat}.{Tick}.
+        /// </summary>
+        public static string Tooltip_Time {
+            get {
+                return ResourceManager.GetString("Tooltip_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Already the latest version.
         /// </summary>
         public static string UpdateCheck_Already_Latest {
