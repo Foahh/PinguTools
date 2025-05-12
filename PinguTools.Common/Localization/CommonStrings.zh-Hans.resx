@@ -169,4 +169,7 @@
     <data name="Error_background_file_is_not_set" xml:space="preserve">
         <value>未设置背景文件。</value>
     </data>
+    <data name="Status_Validate" xml:space="preserve">
+        <value>正在验证...</value>
+    </data>
 </root>

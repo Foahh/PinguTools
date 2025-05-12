@@ -32,12 +32,19 @@ public partial class ChartConverter(MgxcParser parser) : IConverter<ChartConvert
         foreach (var note in mgxc.Notes.Children) ConvertNote(note);
         ConvertEvent(mgxc);
 
+        progress?.Report(CommonStrings.Status_Validate);
+        ValidateChart();
+
         if (mgxc.Meta.BgmEnableBarOffset)
         {
             var sig = mgxc.Meta.BgmInitialTimeSignature;
             var offset = (int)Math.Round((decimal)Time.MarResolution / sig.Denominator * sig.Numerator);
             foreach (var e in Events.Where(e => e.Tick != 0)) e.Tick = e.Tick.Original + offset;
-            foreach (var n in Notes) n.Tick = n.Tick.Original + offset;
+            foreach (var n in Notes)
+            {
+                n.Tick = n.Tick.Original + offset;
+                if (n is c2s.LongNote longNote) longNote.EndTick = longNote.EndTick.Original + offset;
+            }
         }
 
         progress?.Report(CommonStrings.Status_writing);
@@ -104,6 +111,32 @@ public partial class ChartConverter(MgxcParser parser) : IConverter<ChartConvert
     {
         var result = await parser.ParseMeta(path, diag);
         return result.Meta;
+    }
+
+    protected void ValidateChart()
+    {
+        var allSlides = Notes.OfType<c2s.Slide>().ToList();
+        var allAirs = Notes.OfType<c2s.IPairable>().Where(p => p.Parent is c2s.Slide).Cast<c2s.Note>().ToList();
+
+        var airsLookup = allAirs.GroupBy(a => (a.Tick, a.Lane, a.Width)).ToDictionary(g => g.Key, g => g.Count());
+        var slidesLookup = allSlides.GroupBy(s => (s.EndTick, s.EndLane, s.EndWidth)).ToDictionary(g => g.Key, g => g.Count());
+
+        foreach (var (pos, airsCount) in airsLookup)
+        {
+            var slidesCount = slidesLookup.GetValueOrDefault(pos, 0);
+            if (airsCount >= slidesCount) continue;
+            diagnostic.Report(DiagnosticSeverity.Information, Strings.Overlapping_Air_Parent_Slide, pos.Tick.Original);
+        }
+
+        foreach (var longNote in Notes.OfType<c2s.LongNote>())
+        {
+            var length = longNote.Length.Original;
+            if (length >= Time.SingleTick) continue;
+
+            var tick = longNote.Tick.Original;
+            var msg = string.Format(Strings.Diag_set_length_smaller_than_unit, length, Time.SingleTick);
+            diagnostic.Report(DiagnosticSeverity.Warning, msg, tick, longNote);
+        }
     }
 
     public record Context(string ChartPath, string OutputPath, ChartMeta? Meta);

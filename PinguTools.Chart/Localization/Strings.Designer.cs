@@ -96,7 +96,7 @@ namespace PinguTools.Chart.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try to set the length of this note to {0}, but it has been constrained to the minimum value of {1}. This might be due to nodes in the original note having spacing less than {1}..
+        ///   Looks up a localized string similar to The length of this note is {0}. This might be due to nodes in the original note having spacing less than {1}..
         /// </summary>
         public static string Diag_set_length_smaller_than_unit {
             get {
@@ -200,6 +200,15 @@ namespace PinguTools.Chart.Localization {
         public static string Error_soflanArea_has_no_tail {
             get {
                 return ResourceManager.GetString("Error_soflanArea_has_no_tail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Due to multiple overlapping Slide nodes existing simultaneously, it is unknown to determine from which Slide node the Air should start..
+        /// </summary>
+        public static string Overlapping_Air_Parent_Slide {
+            get {
+                return ResourceManager.GetString("Overlapping_Air_Parent_Slide", resourceCulture);
             }
         }
         

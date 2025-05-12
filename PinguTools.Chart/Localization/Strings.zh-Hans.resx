@@ -159,8 +159,8 @@
     <value>物件之间不兼容，无法配对。</value>
 </data>
     <data name="Diag_set_length_smaller_than_unit" xml:space="preserve">
-    <value>尝试将此物件的长度设置为 {0}，但已被限制为最小值 {1}。可能是由于原始物件中存在间距小于 {1} 的节点。</value>
-  </data>
+        <value>此物件的长度为 {0}。可能是由于原始物件中存在间距小于 {1} 的节点。</value>
+    </data>
     <data name="Error_air_parent_null" xml:space="preserve">
         <value>Air的父级不能为 null。</value>
     </data>
@@ -176,4 +176,7 @@
     <data name="Error_note_must_have_non_negative_timeline" xml:space="preserve">
     <value>物件必须具有非负的 TIL 值。</value>
   </data>
+    <data name="Overlapping_Air_Parent_Slide" xml:space="preserve">
+        <value>由于同一时间内存在多个重叠的 Slide 节点，无法确定 Air 应从哪个 Slide 节点开始。</value>
+    </data>
 </root>

@@ -1,5 +1,3 @@
-using PinguTools.Chart.Localization;
-using PinguTools.Common;
 using System.Text.Json.Serialization;
 
 namespace PinguTools.Chart.Models.c2s;
@@ -36,16 +34,11 @@ public abstract class Note : Node
 
 public abstract class LongNote : Note
 {
-    public Time Length { get; private set; }
+    public Time EndTick { get; set; }
+    public Time Length => EndTick.Round - Tick.Round;
 
     public int EndLane { get; set; }
     public int EndWidth { get; set; }
-
-    public void SetLengthSafe(int value, IDiagnostic diag)
-    {
-        if (value < Time.SingleTick) diag.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_set_length_smaller_than_unit, value, Time.SingleTick), Tick.Original, this);
-        Length = Math.Max(Time.SingleTick, value);
-    }
 }
 
 public abstract class LongHeightNote : LongNote

@@ -29,7 +29,8 @@ public partial class MgxcParser
                     Speed = 1m
                 }
             ];
-            diagnostic.Report(DiagnosticSeverity.Information, string.Format(Strings.Diag_main_timeline_not_found, mgxc.Meta.MainTil));
+            var msg = string.Format(Strings.Diag_main_timeline_not_found, mgxc.Meta.MainTil);
+            diagnostic.Report(DiagnosticSeverity.Information, msg);
         }
 
         ChangeGroupId(mainTil, 0);

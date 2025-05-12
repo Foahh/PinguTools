@@ -69,12 +69,15 @@
         <value>Parent of AirSlide cannot be null.</value>
     </data>
     <data name="Diag_set_length_smaller_than_unit" xml:space="preserve">
-        <value>Try to set the length of this note to {0}, but it has been constrained to the minimum value of {1}. This might be due to nodes in the original note having spacing less than {1}.</value>
+        <value>The length of this note is {0}. This might be due to nodes in the original note having spacing less than {1}.</value>
     </data>
     <data name="Diag_concurrent_ex_effects" xml:space="preserve">
         <value>Different EX effects coexist at the same tick: {0}. The game may only display one of these.</value>
     </data>
     <data name="Diag_AirCrush_min_density_but_end_Control" xml:space="preserve">
         <value>The converted Crush has a minimum density of {0}. However, the original End of Crash is Control, resulting in the End actually being a Step.</value>
+    </data>
+    <data name="Overlapping_Air_Parent_Slide" xml:space="preserve">
+        <value>Due to multiple overlapping Slide nodes existing simultaneously, it is unknown to determine from which Slide node the Air should start.</value>
     </data>
 </root>

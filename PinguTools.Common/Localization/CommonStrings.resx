@@ -68,4 +68,7 @@
     <data name="Status_converting_audio" xml:space="preserve">
     <value>Converting Audio...</value>
   </data>
+    <data name="Status_Validate" xml:space="preserve">
+        <value>Validating...</value>
+    </data>
 </root>

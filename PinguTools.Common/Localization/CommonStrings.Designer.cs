@@ -186,6 +186,15 @@ namespace PinguTools.Common.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validating....
+        /// </summary>
+        public static string Status_Validate {
+            get {
+                return ResourceManager.GetString("Status_Validate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Writing....
         /// </summary>
         public static string Status_writing {

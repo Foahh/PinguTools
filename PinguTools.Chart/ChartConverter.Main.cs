@@ -103,31 +103,32 @@ public partial class ChartConverter
 
     private void FinalizeAirCrashJoint(mgxc.AirCrash parent, mgxc.AirCrashJoint start, mgxc.AirCrashJoint end, int jointCount)
     {
-        var length = end.Tick.Round - start.Tick.Round;
-        if (end.Joint == Joint.D) jointCount -= 1;
-
-        Time density = jointCount == 0 ? 0 : length / jointCount;
-        if (end.Joint == Joint.C && jointCount > 0)
+        var note = CreateNote<c2s.AirCrash>(start, x =>
         {
-            if (length <= Time.SingleTick) density = density.Round + Time.SingleTick;
-            else length -= Time.SingleTick;
-        }
-
-        if (density == Time.SingleTick && end.Joint == Joint.C)
-        {
-            diagnostic.Report(DiagnosticSeverity.Warning, string.Format(Strings.Diag_AirCrush_min_density_but_end_Control, density), start.Tick.Original, new[] { start, end });
-        }
-
-        CreateNote<c2s.AirCrash>(start, x =>
-        {
-            x.SetLengthSafe(length, diagnostic);
-            x.Density = density;
             x.Color = parent.Color;
             x.Height = start.Height;
+            x.EndTick = end.Tick;
             x.EndLane = end.Lane;
             x.EndWidth = end.Width;
             x.EndHeight = end.Height;
         });
+
+        if (end.Joint == Joint.D) jointCount -= 1;
+
+        var length = note.Length.Round;
+        Time density = jointCount == 0 ? 0 : length / jointCount;
+        if (end.Joint == Joint.C && jointCount > 0)
+        {
+            if (length <= Time.SingleTick) density = density.Round + Time.SingleTick;
+            else note.EndTick = note.EndTick.Original - Time.SingleTick;
+        }
+        note.Density = density;
+
+        if (density == Time.SingleTick && end.Joint == Joint.C)
+        {
+            var msg = string.Format(Strings.Diag_AirCrush_min_density_but_end_Control, density);
+            diagnostic.Report(DiagnosticSeverity.Warning, msg, start.Tick.Original, new[] { start, end });
+        }
     }
 
     private void ProcessAirCrash(mgxc.AirCrash airCrash)
@@ -158,7 +159,7 @@ public partial class ChartConverter
             var next = joints[i + 1];
             CreateNote<c2s.AirCrash>(curr, x =>
             {
-                x.SetLengthSafe(next.Tick.Round - curr.Tick.Round, diagnostic);
+                x.EndTick = next.Tick;
                 x.EndLane = next.Lane;
                 x.EndWidth = next.Width;
                 x.Height = curr.Height;
@@ -185,8 +186,8 @@ public partial class ChartConverter
                 x.Parent = prev;
                 x.Color = airSlide.Color;
                 x.Height = curr.Height;
-                x.SetLengthSafe(next.Tick.Round - curr.Tick.Round, diagnostic);
                 x.Joint = next.Joint;
+                x.EndTick = next.Tick;
                 x.EndLane = next.Lane;
                 x.EndWidth = next.Width;
                 x.EndHeight = next.Height;
@@ -224,8 +225,8 @@ public partial class ChartConverter
             var index = i;
             var note = CreateNote<c2s.Slide>(curr, x =>
             {
-                x.SetLengthSafe(next.Tick.Round - curr.Tick.Round, diagnostic);
                 x.Joint = next.Joint;
+                x.EndTick = next.Tick;
                 x.EndLane = next.Lane;
                 x.EndWidth = next.Width;
                 x.Effect = index == 0 ? slide.Effect : null;
@@ -255,7 +256,7 @@ public partial class ChartConverter
 
         var note = CreateNote<c2s.Hold>(hold, x =>
         {
-            x.SetLengthSafe(tail.Tick.Round - hold.Tick.Round, diagnostic);
+            x.EndTick = tail.Tick;
             x.Effect = hold.Effect;
         });
         pMap[tail] = note;

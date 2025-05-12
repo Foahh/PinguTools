@@ -142,13 +142,15 @@ public partial class MgxcParser(IReadOnlyCollection<Entry>? weTags)
         }
         foreach (var exTap in remove) mgxc.Notes.RemoveChild(exTap);
 
+        mgxc.Notes.Sort();
+
+
         foreach (var (tick, effects) in exEffects)
         {
             if (effects.Count <= 1) continue;
             var str = string.Join(", ", effects.Select(e => e.ToString()));
-            diagnostic.Report(DiagnosticSeverity.Information, string.Format(Strings.Diag_concurrent_ex_effects, str), tick.Original);
+            var msg = string.Format(Strings.Diag_concurrent_ex_effects, str);
+            diagnostic.Report(DiagnosticSeverity.Information, msg, tick.Original);
         }
-
-        mgxc.Notes.Sort();
     }
 }
