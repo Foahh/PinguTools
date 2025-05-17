@@ -6,7 +6,7 @@ namespace PinguTools.Audio;
 
 public sealed class LoudNormalizer
 {
-    public double TargetLufs { get; init; } = -9.0; // LUFS
+    public double TargetLufs { get; init; } = -8.0; // LUFS
     public double Tolerance { get; init; } = 0.5; // LU
     public double MaxTruePeakDbTp { get; init; } = -1.0; // dBTP
     public bool TruePeakLimiting { get; init; } = true;
