@@ -21,11 +21,11 @@ public sealed class LoudNormalizer
         var withinTolerance = Math.Abs(gain) <= Tolerance;
 
         var prospectivePeak = mTpDb + gain;
-        var clipping = prospectivePeak > MaxTruePeakDbTp;
+        var doClipping = prospectivePeak > MaxTruePeakDbTp;
 
         var upstream = stream.ToSampleProvider();
         if (!withinTolerance) upstream = new GainProvider(upstream, gain);
-        if (TruePeakLimiting && clipping) upstream = new LookAheadLimiter(upstream, LookAheadMs, ReleaseMs, MaxTruePeakDbTp);
+        if (TruePeakLimiting && doClipping) upstream = new LookAheadLimiter(upstream, LookAheadMs, ReleaseMs, MaxTruePeakDbTp);
 
         return upstream;
     }
