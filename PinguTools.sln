@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguTools", "PinguTools\PinguTools.csproj", "{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguTools.Common", "PinguTools.Common\PinguTools.Common.csproj", "{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		build.bat = build.bat
+		.github\workflows\build.yaml = .github\workflows\build.yaml
+		README.md = README.md
+		Version.props = Version.props
+		LICENSE = LICENSE
+		THIRD-PARTY-NOTICES.md = THIRD-PARTY-NOTICES.md
+		.gitmodules = .gitmodules
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicAudioLib", "External\SonicAudioTools\Source\SonicAudioLib\SonicAudioLib.csproj", "{8963B4D5-36D4-4D54-A30B-FD158479D1E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VGAudio", "External\VGAudio\src\VGAudio\VGAudio.csproj", "{A47B9EFE-2D60-4A67-B8A3-D228D0EE8ADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libebur128", "External\libebur128\libebur128.csproj", "{5E975E67-90A2-4CC8-ACF5-DEDCD305CBC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1056152-CF5F-4014-AE80-E7E8AC3A6C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3AB3F9E-2605-410C-B23E-8A49A2FA31B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8963B4D5-36D4-4D54-A30B-FD158479D1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8963B4D5-36D4-4D54-A30B-FD158479D1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8963B4D5-36D4-4D54-A30B-FD158479D1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8963B4D5-36D4-4D54-A30B-FD158479D1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A47B9EFE-2D60-4A67-B8A3-D228D0EE8ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A47B9EFE-2D60-4A67-B8A3-D228D0EE8ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A47B9EFE-2D60-4A67-B8A3-D228D0EE8ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A47B9EFE-2D60-4A67-B8A3-D228D0EE8ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E975E67-90A2-4CC8-ACF5-DEDCD305CBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E975E67-90A2-4CC8-ACF5-DEDCD305CBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E975E67-90A2-4CC8-ACF5-DEDCD305CBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E975E67-90A2-4CC8-ACF5-DEDCD305CBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_PrefixTranslations = False
+		SolutionGuid = {41AF8E9D-0255-44BD-B46A-97ECD712AA73}
+	EndGlobalSection
+EndGlobal

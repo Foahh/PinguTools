@@ -1,0 +1,9 @@
+[submodule "External/VGAudio"]
+	path = External/VGAudio
+	url = https://github.com/Foahh/VGAudio
+[submodule "External/SonicAudioTools"]
+	path = External/SonicAudioTools
+	url = https://github.com/Foahh/SonicAudioTools
+[submodule "External/ebur128_rs"]
+	path = External/ebur128_rs
+	url = https://github.com/Foahh/ebur128

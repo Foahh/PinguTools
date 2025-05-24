@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <AssemblyName>PinguTools.Common</AssemblyName>
+        <Title>PinguTools.Common</Title>
+        <Authors>Foahh</Authors>
+        <PackageProjectUrl>https://github.com/Foahh/PinguTools</PackageProjectUrl>
+        <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <Import Project="..\Version.props"/>
+
+    <Target Name="Build Ebur128" BeforeTargets="BeforeBuild">
+        <Exec Command="cargo cbuild --release --manifest-path &quot;$(SolutionDir)External\ebur128_rs\Cargo.toml&quot; --features bindgen"/>
+    </Target>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\CommonResources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\CommonStrings.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>CommonStrings.Designer.cs</LastGenOutput>
+            <SubType>Designer</SubType>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\CommonStrings.zh-Hans.resx">
+            <DependentUpon>CommonStrings.resx</DependentUpon>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BCnEncoder.Net.ImageSharp" Version="1.1.2"/>
+        <PackageReference Include="NAudio" Version="2.2.1"/>
+        <PackageReference Include="NAudio.Vorbis.Latest" Version="1.5.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\External\SonicAudioTools\Source\SonicAudioLib\SonicAudioLib.csproj"/>
+        <ProjectReference Include="..\External\VGAudio\src\VGAudio\VGAudio.csproj"/>
+        <ProjectReference Include="..\External\libebur128\libebur128.csproj"/>
+    </ItemGroup>
+</Project>

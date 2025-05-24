@@ -1,0 +1,81 @@
+name: "Build Release"
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize Submodules
+        run: git submodule update --init --recursive
+
+      - name: Cargo Cache Restore
+        id: cargo-cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('External/ebur128_rs/Cargo.lock') }}
+
+      - name: Install "cargo-c"
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
+        run: "cargo install cargo-c"
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10"
+          cache-dependency-path: |
+            - "**/packages.lock.json"
+            - "External/**/packages.lock.json"
+
+      - name: Restore Nuget Packages
+        run: dotnet restore
+
+      - name: Publish .NET Application (Self-Contained)
+        run: dotnet publish -c Release -r win-x64 --self-contained true --artifacts-path ./Build/Self-Contained
+
+      - name: Publish .NET Application (Framework-Dependent)
+        run: dotnet publish -c Release -r win-x64 --self-contained false --artifacts-path ./Build/Framework-Dependent
+
+      - name: Prepare Self-Contained Artifact
+        run: |
+          $tagName = $env:GITHUB_REF -replace 'refs/(heads|tags|remotes)/', ''
+          New-Item -ItemType Directory -Path Build/artifacts
+          Copy-Item "Build/Self-Contained/publish/PinguTools/release_win-x64/PinguTools.exe" "Build/artifacts/PinguTools_${tagName}_Self_Contained.exe"
+
+      - name: Prepare Framework-Dependent Artifact
+        run: |
+          $tagName = $env:GITHUB_REF -replace 'refs/(heads|tags|remotes)/', ''
+          Copy-Item "Build/Framework-Dependent/publish/PinguTools/release_win-x64/PinguTools.exe" "Build/artifacts/PinguTools_${tagName}.exe"
+
+      - name: Cargo Cache Save
+        id: cache-cargo-save
+        if: always() && steps.cache-cargo.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          key: ${{ steps.cargo-cache-restore.outputs.cache-primary-key }}
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+
+      - name: Action Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            Build/artifacts/*
+            LICENSE
+            THIRD-PARTY-NOTICES.md

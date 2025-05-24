@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>
+            System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>
+            System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="Button_Convert" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+    <data name="Label_Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+    <data name="Label_Jacket_ID" xml:space="preserve">
+    <value>Jacket ID</value>
+  </data>
+    <data name="Label_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+    <data name="Button_open_temp_directory" xml:space="preserve">
+    <value>Open Temp Directory</value>
+  </data>
+    <data name="Button_extract_dds_from_afb" xml:space="preserve">
+    <value>Extract *.dds from *.afb</value>
+  </data>
+  <data name="Button_Recollect_A000" xml:space="preserve">
+    <value>Recollect A000</value>
+  </data>
+    <data name="Label_Not_Available" xml:space="preserve">
+    <value>Not available</value>
+  </data>
+    <data name="Label_Stage_ID" xml:space="preserve">
+    <value>Stage ID</value>
+  </data>
+    <data name="Label_Effects" xml:space="preserve">
+    <value>Effects (256×256)</value>
+  </data>
+    <data name="Label_NotesField_Line_Color" xml:space="preserve">
+    <value>Notes Field Line Color</value>
+  </data>
+    <data name="Button_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+    <data name="Button_Generate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+    <data name="Label_Chart" xml:space="preserve">
+    <value>Chart: </value>
+  </data>
+    <data name="Label_Folder" xml:space="preserve">
+    <value>Folder: </value>
+  </data>
+    <data name="Title_Diagnostics" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+    <data name="Title_select_the_input_file" xml:space="preserve">
+    <value>Select the input file</value>
+  </data>
+    <data name="Title_select_the_output_folder" xml:space="preserve">
+    <value>Select the output folder</value>
+  </data>
+    <data name="Title_select_the_A000_folder" xml:space="preserve">
+    <value>Select the A000 folder</value>
+  </data>
+    <data name="Title_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+    <data name="Tab_Workflow" xml:space="preserve">
+    <value>Workflow</value>
+  </data>
+    <data name="Tab_Option" xml:space="preserve">
+    <value>Option</value>
+  </data>
+    <data name="Tab_Chart" xml:space="preserve">
+    <value>Chart</value>
+  </data>
+    <data name="Tab_Jacket" xml:space="preserve">
+    <value>Jacket</value>
+  </data>
+    <data name="Tab_Music" xml:space="preserve">
+    <value>Music</value>
+  </data>
+    <data name="Tab_Stage" xml:space="preserve">
+    <value>Stage</value>
+  </data>
+    <data name="Tab_Misc" xml:space="preserve">
+    <value>Misc</value>
+  </data>
+    <data name="Label_StackTrace" xml:space="preserve">
+    <value>Stack Trace</value>
+  </data>
+    <data name="UpdateCheck_Failed" xml:space="preserve">
+    <value>Update check failed</value>
+</data>
+    <data name="UpdateCheck_Already_Latest" xml:space="preserve">
+    <value>Already the latest version</value>
+</data>
+    <data name="UpdateCheck_New_Version_Available" xml:space="preserve">
+    <value>New version {0} available (Click to View)</value>
+</data>
+    <data name="UpdateCheck_Checking" xml:space="preserve">
+    <value>Checking for updates...</value>
+</data>
+    <data name="UpdateCheck_Tooltip" xml:space="preserve">
+    <value>Click to check for updates</value>
+</data>
+    <data name="Button_Copy_Exception" xml:space="preserve">
+    <value>Copy Exception</value>
+  </data>
+    <data name="Button_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+    <data name="Label_Background" xml:space="preserve">
+    <value>Background (1920×1080): </value>
+  </data>
+    <data name="Label_Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+    <data name="Label_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+    <data name="Label_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+    <data name="Window_Title" xml:space="preserve">
+    <value>{0} {1}</value>
+  </data>
+    <data name="Compatible_with_Margrete" xml:space="preserve">
+    <value>Compatible w/ Margrete {0}</value>
+  </data>
+    <data name="Diag_file_ignored_due_to_id_missing" xml:space="preserve">
+    <value>This file is ignored since Song ID is missing. Set a number for Song Id in Margrete.</value>
+  </data>
+    <data name="Diag_duplicate_id_and_difficulty" xml:space="preserve">
+    <value>Multiple charts with the same song ID and difficulty exist, the last scanned file will be used.</value>
+  </data>
+    <data name="Error_no_charts_are_found_directory" xml:space="preserve">
+    <value>No charts are found in the directory.</value>
+  </data>
+  <data name="Diag_we_chart_must_be_unique_id" xml:space="preserve">
+    <value>World's End chart must use unique Song ID; otherwise, other difficulty charts will not display under common song categories.</value>
+  </data>
+    <data name="Diag_more_than_one_chart_marked_main" xml:space="preserve">
+    <value>Multiple charts for this Song ID have been tagged with “#meta main” in their comments. The first chart found with this tag will be set as the reference difficulty.</value>
+  </data>
+    <data name="Diag_no_chart_marked_main" xml:space="preserve">
+    <value>No reference difficulty for this Song ID. Selecting the highest-difficulty chart by default. To choose a reference difficulty explicitly, add `#meta main` to the comment of the chart.</value>
+  </data>
+    <data name="Button_Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+    <data name="Alert_edit_notice" xml:space="preserve">
+    <value>Please edit the properties of charts in Margrete first.</value>
+  </data>
+    <data name="Alert_mgxc_edit_recommend" xml:space="preserve">
+    <value>It is recommended to edit chart properties in Margrete first.</value>
+  </data>
+    <data name="Label_Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+    <data name="Label_Image" xml:space="preserve">
+    <value>Image: </value>
+  </data>
+    <data name="Label_Audio" xml:space="preserve">
+    <value>Audio: </value>
+  </data>
+    <data name="Label_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+    <data name="Label_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+    <data name="Message_discard_changes" xml:space="preserve">
+    <value>Do you want to discard the changes?</value>
+  </data>
+    <data name="Alert_file_changed" xml:space="preserve">
+    <value>This file has been modified on {0:HH:mm:ss}. Reload to use the latest version.</value>
+  </data>
+    <data name="Error_Stage_Failed" xml:space="preserve">
+    <value>Stage conversion failed.</value>
+  </data>
+    <data name="Error_Music_Failed" xml:space="preserve">
+    <value>Music conversion failed.</value>
+  </data>
+    <data name="Error_Jacket_Failed" xml:space="preserve">
+    <value>Jacket conversion failed.</value>
+  </data>
+    <data name="Error_Chart_Failed" xml:space="preserve">
+    <value>Chart conversion failed.</value>
+  </data>
+    <data name="Category_Song" xml:space="preserve">
+        <value>Song</value>
+    </data>
+    <data name="Display_SongId" xml:space="preserve">
+        <value>Song ID</value>
+    </data>
+    <data name="Description_SongId" xml:space="preserve">
+        <value>The Song ID is extracted from Margrete's Song ID.</value>
+    </data>
+    <data name="Display_Title" xml:space="preserve">
+  <value>Title</value>
+</data>
+    <data name="Display_SortName" xml:space="preserve">
+  <value>Sort Name</value>
+</data>
+    <data name="Description_SortName" xml:space="preserve">
+        <value>Determines how songs are sorted in the game.</value>
+    </data>
+    <data name="Display_Artist" xml:space="preserve">
+  <value>Artist</value>
+</data>
+    <data name="Category_BGM" xml:space="preserve">
+  <value>BGM</value>
+</data>
+    <data name="Display_BgmPreviewStart" xml:space="preserve">
+  <value>Preview Start Time (s)</value>
+</data>
+    <data name="Display_BgmPreviewStop" xml:space="preserve">
+  <value>Preview Stop Time (s)</value>
+</data>
+    <data name="Display_BgmFile" xml:space="preserve">
+  <value>BGM File</value>
+</data>
+    <data name="Display_NormalizeBgm" xml:space="preserve">
+  <value>Normalize Bgm Format</value>
+</data>
+    <data name="Description_NormalizeBgm" xml:space="preserve">
+  <value>Converts BGM files to 16-bit, 48kHz PCM .wav format and normalizes loudness. You can disable this if your files are already in the correct format. To quickly set it up, include "#meta normalize false" in the chart comment.</value>
+</data>
+  <data name="Description_BgmFile" xml:space="preserve">
+    <value>It is recommended to use audio files in .wav format to reduce the audio latency discrepancy between the game and Margrete, </value>
+  </data>
+    <data name="Category_Sync" xml:space="preserve">
+  <value>Sync</value>
+</data>
+    <data name="Display_RealOffset" xml:space="preserve">
+  <value>Real Offset (s)</value>
+</data>
+    <data name="Description_RealOffset" xml:space="preserve">
+  <value>This value represents the calculated offset (in seconds) applied to the song. Positive values indicate a delay, while negative values indicate an advance.</value>
+</data>
+    <data name="Display_ManualOffset" xml:space="preserve">
+  <value>Manual Offset (s)</value>
+</data>
+    <data name="Description_ManualOffset" xml:space="preserve">
+        <value>Configure this through Margrete. This value represents the offset (in seconds) applied to the song manually set by user. Positive values indicate a delay, while negative values indicate an advance.</value>
+    </data>
+    <data name="Display_InsertBlankMeasure" xml:space="preserve">
+  <value>Insert Blank Measure</value>
+</data>
+    <data name="Description_InsertBlankMeasure" xml:space="preserve">
+        <value>Configure this through Margrete (Insert a blank bar before the first measure). If enabled, a silent measure with click cues is inserted at the beginning, ensuring that the first musical measure follows the blank.</value>
+    </data>
+    <data name="Display_BgmInitialBpm" xml:space="preserve">
+  <value>Initial BPM</value>
+</data>
+    <data name="Description_BgmInitialBpm" xml:space="preserve">
+  <value>Specifies the starting BPM (Beats Per Minute) of the chart. It is used to calculate real offset.</value>
+</data>
+    <data name="Display_BgmInitialTimeSignature" xml:space="preserve">
+  <value>Initial Time Signature</value>
+</data>
+    <data name="Description_BgmInitialTimeSignature" xml:space="preserve">
+  <value>Specifies the time signature (beats per bar and note value) at the start of the chart. It is used to calculate real offset.</value>
+</data>
+    <data name="Display_Tick" xml:space="preserve">
+  <value>Tick</value>
+</data>
+    <data name="Display_Numerator" xml:space="preserve">
+  <value>Numerator</value>
+</data>
+    <data name="Display_Denominator" xml:space="preserve">
+  <value>Denominator</value>
+</data>
+    <data name="Category_Chart" xml:space="preserve">
+  <value>Chart</value>
+</data>
+    <data name="Display_Designer" xml:space="preserve">
+  <value>Designer</value>
+</data>
+    <data name="Display_Difficulty" xml:space="preserve">
+  <value>Difficulty</value>
+</data>
+    <data name="Display_UnlockEventID" xml:space="preserve">
+  <value>Unlock Event ID</value>
+</data>
+    <data name="Description_UnlockEventID" xml:space="preserve">
+        <value>The event that unlocks the "World's End" or "ULTIMA" chart in the game. If left blank, the generation of the associated Event.xml file will be skipped.</value>
+    </data>
+    <data name="Display_Level" xml:space="preserve">
+  <value>Level</value>
+</data>
+    <data name="Display_ReleaseDate" xml:space="preserve">
+  <value>Release Date</value>
+</data>
+    <data name="Display_DisplayBPM" xml:space="preserve">
+  <value>Display BPM</value>
+</data>
+    <data name="Display_MainTil" xml:space="preserve">
+  <value>Main Timeline</value>
+</data>
+    <data name="Description_MainTil" xml:space="preserve">
+        <value>Configure this through Margrete (Base timeline). Determines which Timeline affects the bar line positions and AIR animation speed. Default is 0.</value>
+    </data>
+    <data name="Display_WorldsEndTag" xml:space="preserve">
+  <value>World's End Tag</value>
+</data>
+    <data name="Display_WorldsEndDifficulty" xml:space="preserve">
+  <value>World's End Difficulty</value>
+</data>
+    <data name="Category_Display" xml:space="preserve">
+  <value>Display</value>
+</data>
+    <data name="Display_JacketFile" xml:space="preserve">
+  <value>Jacket File</value>
+</data>
+    <data name="Display_BackgroundFile" xml:space="preserve">
+  <value>Background File</value>
+</data>
+    <data name="Display_BackgroundStage" xml:space="preserve">
+  <value>Background Stage</value>
+</data>
+    <data name="Category_Misc" xml:space="preserve">
+  <value>Misc</value>
+</data>
+    <data name="Display_IsCustomStage" xml:space="preserve">
+        <value>Custom Background</value>
+    </data>
+    <data name="Display_StageId" xml:space="preserve">
+        <value>Stage ID</value>
+    </data>
+    <data name="Display_NotesFieldLine" xml:space="preserve">
+        <value>Notes Field Line Color</value>
+    </data>
+    <data name="Description_DisplayBPM" xml:space="preserve">
+        <value>BPM displayed in song selection menu</value>
+    </data>
+    <data name="Display_FilePath" xml:space="preserve">
+        <value>File Path</value>
+    </data>
+    <data name="Description_BackgroundStage" xml:space="preserve">
+        <value>This field determines the background stage in the game. To quickly set it up, include "#meta stage [StringID]" in the chart comment (Replace [StringID] with the stage's ID or name).</value>
+    </data>
+    <data name="Category_Settings" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="Display_MainDifficulty" xml:space="preserve">
+        <value>Referenced Difficulty</value>
+    </data>
+    <data name="Description_MainDifficulty" xml:space="preserve">
+    <value>Used to specify which difficulty's chart property will be used as the reference.</value>
+  </data>
+    <data name="Display_OptionName" xml:space="preserve">
+    <value>Option Name</value>
+  </data>
+    <data name="Display_ConvertChart" xml:space="preserve">
+    <value>Convert Chart</value>
+  </data>
+    <data name="Display_GenerateMusicXml" xml:space="preserve">
+    <value>Generate Music.xml</value>
+  </data>
+    <data name="Display_ConvertAudio" xml:space="preserve">
+    <value>Convert Audio</value>
+  </data>
+    <data name="Display_ConvertJacket" xml:space="preserve">
+    <value>Convert Jacket</value>
+  </data>
+    <data name="Display_ConvertBackground" xml:space="preserve">
+    <value>Convert Background</value>
+  </data>
+    <data name="Display_GenerateEventXml" xml:space="preserve">
+    <value>Generate Event.xml</value>
+  </data>
+    <data name="Display_UltimaEventId" xml:space="preserve">
+    <value>Unlock Ultima Event ID</value>
+  </data>
+    <data name="Display_WeEventId" xml:space="preserve">
+    <value>Unlock World's End Event ID</value>
+  </data>
+    <data name="Description_UnlockEventIDOption" xml:space="preserve">
+    <value>The event that unlocks the "World's End" or "ULTIMA" charts in the game.</value>
+  </data>
+    <data name="Description_Genre" xml:space="preserve">
+    <value>To quickly set it up, include "#meta genre [StringID]" in the chart comment (Replace [StringID] with the stage's ID or name).</value>
+  </data>
+    <data name="Display_Genre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+    <data name="Error_but_nobody_came" xml:space="preserve">
+    <value>* But nobody came.</value>
+  </data>
+    <data name="Status_convert_progress" xml:space="preserve">
+    <value>Converting {0}/{1}... </value>
+</data>
+    <data name="Display_MaxParallelismDegree" xml:space="preserve">
+    <value>Maximum Parallel Tasks</value>
+</data>
+    <data name="Description_MaxParallelismDegree" xml:space="preserve">
+    <value>Sets the number of files that can be converted simultaneously. Increasing this value will speed up overall conversion, but may also increase the likelihood of audio conversion exceptions.</value>
+</data>
+</root>
