@@ -1,5 +1,5 @@
 ﻿using PinguTools.Attributes;
-using PinguTools.Common;
+using PinguTools.Common.Chart;
 using PinguTools.Resources;
 using System.ComponentModel.DataAnnotations;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;

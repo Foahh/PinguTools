@@ -1,6 +1,7 @@
+using PinguTools.Common.Asset;
 using System.ComponentModel;
 
-namespace PinguTools.Common;
+namespace PinguTools.Common.Chart;
 
 public record TimeSignature(int Tick = 0, int Numerator = 4, int Denominator = 4);
 

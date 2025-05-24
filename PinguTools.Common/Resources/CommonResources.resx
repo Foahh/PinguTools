@@ -145,7 +145,8 @@
         </value>
     </data>
     <data name="ebur128_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\..\External\ebur128_rs\target\x86_64-pc-windows-msvc\release\ebur128.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        <value>..\..\External\ebur128_rs\target\x86_64-pc-windows-msvc\release\ebur128.dll;System.Byte[], mscorlib,
+            Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b77a5c561934e089
         </value>
     </data>

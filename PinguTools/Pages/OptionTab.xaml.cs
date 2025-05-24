@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PinguTools.Common;
+using PinguTools.Common.Chart;
 using PinguTools.Models;
 using PinguTools.ViewModels;
 using System.Windows;

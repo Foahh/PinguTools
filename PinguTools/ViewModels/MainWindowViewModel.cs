@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using PinguTools.Common;
 using PinguTools.Resources;
 using PinguTools.Services;
 using System.Diagnostics;
@@ -17,7 +16,7 @@ public partial class MainWindowViewModel : ViewModel
         ActionService.PropertyChanged += (_, e) => OnPropertyChanged(e.PropertyName);
     }
 
-    public bool IsUpdateAvailable => LatestVersion != null && LatestVersion > Information.Version;
+    public bool IsUpdateAvailable => LatestVersion != null && LatestVersion > App.Version;
 
     [ObservableProperty]
     public partial string? DownloadUrl { get; set; }

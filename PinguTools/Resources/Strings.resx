@@ -41,7 +41,7 @@
     <data name="Button_extract_dds_from_afb" xml:space="preserve">
     <value>Extract *.dds from *.afb</value>
   </data>
-  <data name="Button_Recollect_A000" xml:space="preserve">
+    <data name="Button_Recollect_A000" xml:space="preserve">
     <value>Recollect A000</value>
   </data>
     <data name="Label_Not_Available" xml:space="preserve">
@@ -155,7 +155,7 @@
     <data name="Error_no_charts_are_found_directory" xml:space="preserve">
     <value>No charts are found in the directory.</value>
   </data>
-  <data name="Diag_we_chart_must_be_unique_id" xml:space="preserve">
+    <data name="Diag_we_chart_must_be_unique_id" xml:space="preserve">
     <value>World's End chart must use unique Song ID; otherwise, other difficulty charts will not display under common song categories.</value>
   </data>
     <data name="Diag_more_than_one_chart_marked_main" xml:space="preserve">
@@ -245,7 +245,7 @@
     <data name="Description_NormalizeBgm" xml:space="preserve">
   <value>Converts BGM files to 16-bit, 48kHz PCM .wav format and normalizes loudness. You can disable this if your files are already in the correct format. To quickly set it up, include "#meta normalize false" in the chart comment.</value>
 </data>
-  <data name="Description_BgmFile" xml:space="preserve">
+    <data name="Description_BgmFile" xml:space="preserve">
     <value>It is recommended to use audio files in .wav format to reduce the audio latency discrepancy between the game and Margrete, </value>
   </data>
     <data name="Category_Sync" xml:space="preserve">

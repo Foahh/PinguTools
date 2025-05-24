@@ -1,4 +1,5 @@
 ﻿using BCnEncoder.Shared;
+using PinguTools.Common.Asset;
 using PinguTools.Common.Graphic.Locator;
 using PinguTools.Common.Resources;
 using PinguTools.Common.Xml;

@@ -1,5 +1,4 @@
-﻿using PinguTools.Common;
-using PinguTools.Resources;
+﻿using PinguTools.Resources;
 using PinguTools.ViewModels;
 using System.Windows;
 
@@ -11,7 +10,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         DataContext = viewModel;
-        Title = string.Format(Strings.Window_Title, Information.Name, Information.VersionString);
+        Title = string.Format(Strings.Window_Title, App.Name, App.Version.ToString(3));
 
         Loaded += async (s, e) => await ((MainWindowViewModel)DataContext).UpdateCheck();
     }

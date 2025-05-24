@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PinguTools.Common;
+using PinguTools.Common.Asset;
 using PinguTools.Controls;
 using PinguTools.Services;
 using PinguTools.ViewModels;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 
@@ -12,6 +14,10 @@ namespace PinguTools;
 
 public partial class App : Application
 {
+    public static readonly string Name = Assembly.GetExecutingAssembly().GetName().Name ?? throw new InvalidOperationException("Failed to retrieve application name");
+    public static readonly Version Version = Assembly.GetExecutingAssembly().GetName().Version ?? throw new InvalidOperationException("Failed to retrieve application version");
+    public static readonly DateTime BuildDate = BuildDateAttribute.GetAssemblyBuildDate();
+
     private IHost host = null!;
     internal new static Window MainWindow => Services.GetRequiredService<MainWindow>();
     internal static IServiceProvider Services => ((App)Current).host.Services;

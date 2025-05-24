@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
 using PinguTools.Common;
+using PinguTools.Common.Asset;
 using PinguTools.Common.Resources;
 using PinguTools.Models;
 using PinguTools.Services;

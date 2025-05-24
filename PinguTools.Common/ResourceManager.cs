@@ -1,4 +1,5 @@
 ﻿using PinguTools.Common.Resources;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -6,8 +7,9 @@ namespace PinguTools.Common;
 
 public static class ResourceManager
 {
+    private static readonly string Name = Assembly.GetExecutingAssembly().GetName().Name ?? nameof(ResourceManager);
     private static readonly Lock Lock = new();
-    public static string TempPath => Path.Combine(Path.GetTempPath(), Information.Name);
+    public static string TempPath => Path.Combine(Path.GetTempPath(), Name);
     private static Dictionary<string, string> Resources { get; } = new();
 
     public static void Initialize()

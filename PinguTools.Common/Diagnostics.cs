@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using PinguTools.Common.Chart;
+using System.Collections.Concurrent;
 
 namespace PinguTools.Common;
 

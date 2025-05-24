@@ -13,7 +13,7 @@ public enum EbuR128Modes
     EBUR128_MODE_SAMPLE_PEAK = 1 << 4 | EBUR128_MODE_M,
     EBUR128_MODE_TRUE_PEAK = 1 << 5 | EBUR128_MODE_M | EBUR128_MODE_SAMPLE_PEAK,
     EBUR128_MODE_HISTOGRAM = 1 << 6
-};
+}
 
 public enum EbuR128Result
 {
@@ -26,7 +26,7 @@ public enum EbuR128Result
 
 public sealed class EbuR128Handler : SafeHandle
 {
-    public EbuR128Handler(uint channels, uint samplerate, EbuR128Modes mode) : base(IntPtr.Zero, ownsHandle: true)
+    public EbuR128Handler(uint channels, uint samplerate, EbuR128Modes mode) : base(IntPtr.Zero, true)
     {
         unsafe
         {

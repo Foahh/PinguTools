@@ -1,4 +1,5 @@
-﻿using PinguTools.Common.Chart.Models;
+﻿using PinguTools.Common.Asset;
+using PinguTools.Common.Chart.Models;
 using PinguTools.Common.Graphic;
 using PinguTools.Common.Resources;
 using System.Text;

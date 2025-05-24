@@ -1,5 +1,4 @@
-﻿using PinguTools.Common;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -17,7 +16,7 @@ public class GitHubUpdateService : IUpdateService
     public GitHubUpdateService()
     {
         httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Information.Name, Information.VersionString));
+        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(App.Name));
     }
 
     public async Task<(Version Version, string Url)> CheckForUpdatesAsync()

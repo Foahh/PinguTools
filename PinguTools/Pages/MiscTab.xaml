@@ -5,8 +5,8 @@
     xmlns:common="clr-namespace:PinguTools.Common;assembly=PinguTools.Common"
     xmlns:converters="clr-namespace:PinguTools.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PinguTools"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:pinguTools="clr-namespace:PinguTools"
     xmlns:res="clr-namespace:PinguTools.Resources"
     xmlns:viewModels="clr-namespace:PinguTools.ViewModels"
     MaxWidth="600"
@@ -38,7 +38,7 @@
                 HorizontalAlignment="Center"
                 FontSize="14"
                 Foreground="#555"
-                Text="{Binding Source={x:Static common:Information.BuildDate}, StringFormat=Foahh @ {0:yyyy/MM/dd}}" />
+                Text="{Binding Source={x:Static local:App.BuildDate}, StringFormat=Foahh @ {0:yyyy/MM/dd}}" />
 
             <TextBlock
                 Margin="0,8,0,0"
@@ -46,7 +46,7 @@
                 FontSize="12"
                 FontWeight="SemiBold"
                 Foreground="#777"
-                Text="{Binding Source={x:Static common:Information.Version}, Converter={StaticResource VersionConverter}}" />
+                Text="{Binding Source={x:Static local:App.Version}, Converter={StaticResource VersionConverter}}" />
         </StackPanel>
 
         <StackPanel Grid.Row="1">

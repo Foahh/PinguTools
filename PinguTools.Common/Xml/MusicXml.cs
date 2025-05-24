@@ -1,4 +1,6 @@
-﻿using PinguTools.Common.Resources;
+﻿using PinguTools.Common.Asset;
+using PinguTools.Common.Chart;
+using PinguTools.Common.Resources;
 using System.Xml.Serialization;
 
 namespace PinguTools.Common.Xml;

@@ -1,6 +1,7 @@
 ﻿using NAudio.Vorbis;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
+using PinguTools.Common.Chart;
 using PinguTools.Common.Resources;
 using PinguTools.Common.Xml;
 

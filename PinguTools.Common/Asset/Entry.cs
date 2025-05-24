@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
-namespace PinguTools.Common;
+namespace PinguTools.Common.Asset;
 
 public sealed class Entry : IComparable<Entry>, IEquatable<Entry>
 {

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using PinguTools.Common.Asset;
+using System.Xml.Serialization;
 
 namespace PinguTools.Common.Xml;
 

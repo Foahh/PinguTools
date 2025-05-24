@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using PinguTools.Common;
+using PinguTools.Common.Chart;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
@@ -13,7 +13,7 @@ namespace PinguTools.Models;
 
 public class ModelJsonTypeInfoResolver : IJsonTypeInfoResolver
 {
-    private static readonly DefaultJsonTypeInfoResolver DefaultResolver = new DefaultJsonTypeInfoResolver();
+    private static readonly DefaultJsonTypeInfoResolver DefaultResolver = new();
 
     public JsonTypeInfo? GetTypeInfo(Type type, JsonSerializerOptions options)
     {
@@ -31,6 +31,21 @@ public class ModelJsonTypeInfoResolver : IJsonTypeInfoResolver
 
 public abstract class Model : ObservableValidator
 {
+    protected virtual string JsonName => throw new InvalidOperationException();
+
+    private static JsonSerializerOptions JsonSerializerOptions => new()
+    {
+        WriteIndented = true,
+        PropertyNameCaseInsensitive = true,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        TypeInfoResolver = new ModelJsonTypeInfoResolver()
+    };
+
+    // workaround for hiding ObservableValidator's property
+    [Browsable(false)]
+    [JsonIgnore]
+    public new bool HasErrors { get; set; }
+
     public async Task LoadAsync(string directory, CancellationToken token)
     {
         var path = Path.Combine(directory, JsonName);
@@ -68,23 +83,8 @@ public abstract class Model : ObservableValidator
         if (string.IsNullOrWhiteSpace(directory)) throw new ArgumentNullException(nameof(directory));
         var path = Path.Combine(directory, JsonName);
         await using var stream = File.Create(path);
-        await JsonSerializer.SerializeAsync(stream, this, this.GetType(), JsonSerializerOptions, token);
+        await JsonSerializer.SerializeAsync(stream, this, GetType(), JsonSerializerOptions, token);
     }
-    
-    protected virtual string JsonName => throw new InvalidOperationException();
-
-    private static JsonSerializerOptions JsonSerializerOptions => new()
-    {
-        WriteIndented = true,
-        PropertyNameCaseInsensitive = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        TypeInfoResolver = new ModelJsonTypeInfoResolver()
-    };
-
-    // workaround for hiding ObservableValidator's property
-    [Browsable(false)]
-    [JsonIgnore]
-    public new bool HasErrors { get; set; }
 
     protected void SetPropertyReadOnly(string propertyName, bool readOnly)
     {

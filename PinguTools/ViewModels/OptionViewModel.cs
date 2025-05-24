@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Win32;
 using PinguTools.Common;
+using PinguTools.Common.Asset;
 using PinguTools.Common.Audio;
 using PinguTools.Common.Chart;
 using PinguTools.Common.Chart.Parser;

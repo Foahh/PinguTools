@@ -1,5 +1,6 @@
 ﻿using PinguTools.Attributes;
-using PinguTools.Common;
+using PinguTools.Common.Asset;
+using PinguTools.Common.Chart;
 using PinguTools.Resources;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;

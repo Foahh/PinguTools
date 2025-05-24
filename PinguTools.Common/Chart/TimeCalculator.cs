@@ -3,7 +3,7 @@
    Original Author: paralleltree
 */
 
-namespace PinguTools.Common;
+namespace PinguTools.Common.Chart;
 
 public class TimeCalculator
 {

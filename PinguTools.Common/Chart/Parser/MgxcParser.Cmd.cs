@@ -1,4 +1,5 @@
-﻿using PinguTools.Common.Resources;
+﻿using PinguTools.Common.Asset;
+using PinguTools.Common.Resources;
 
 namespace PinguTools.Common.Chart.Parser;
 

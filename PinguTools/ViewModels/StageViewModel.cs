@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
-using PinguTools.Common;
+using PinguTools.Common.Asset;
 using PinguTools.Common.Graphic;
 using PinguTools.Resources;
 using System.IO;
